@@ -1,0 +1,724 @@
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-03 18:58:51) [GET]
+
+ActionController::RoutingError (No route matches "/player" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-03 18:58:54) [GET]
+
+ActionController::RoutingError (No route matches "/player/index" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-03 18:58:58) [GET]
+
+ActionController::RoutingError (No route matches "/player/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2010-04-03 18:59:11) [GET]
+
+ActiveRecord::StatementInvalid (Could not find table 'players'):
+  app/controllers/players_controller.rb:27:in `new'
+  app/controllers/players_controller.rb:27:in `new'
+
+Rendered rescues/_trace (59.0ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (3.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" text, "password" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100403225834')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("players")[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2010-04-03 18:59:25) [GET]
+Rendering template within layouts/players
+Rendering players/new
+Completed in 106ms (View: 96, DB: 0) | 200 OK [http://localhost/players/new]
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2010-04-03 19:01:40) [GET]
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" [0m
+Rendering template within layouts/players
+Rendering players/index
+Completed in 18ms (View: 8, DB: 0) | 200 OK [http://localhost/players]
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2010-04-03 19:01:44) [GET]
+Rendering template within layouts/players
+Rendering players/new
+Completed in 17ms (View: 8, DB: 0) | 200 OK [http://localhost/players/new]
+
+
+Processing PlayersController#create (for 127.0.0.1 at 2010-04-03 19:01:52) [POST]
+  Parameters: {"player"=>{"password"=>"1234", "login"=>"matt"}, "commit"=>"Create", "authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4="}
+  [4;35;1mPlayer Create (0.5ms)[0m   [0mINSERT INTO "players" ("created_at", "updated_at", "login", "password") VALUES('2010-04-03 23:01:52', '2010-04-03 23:01:52', 'matt', '1234')[0m
+Redirected to http://localhost:3000/players/1
+Completed in 31ms (DB: 1) | 302 Found [http://localhost/players]
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2010-04-03 19:01:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Rendering template within layouts/players
+Rendering players/show
+Completed in 19ms (View: 9, DB: 0) | 200 OK [http://localhost/players/1]
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2010-04-03 19:02:00) [GET]
+  [4;35;1mPlayer Load (6.2ms)[0m   [0mSELECT * FROM "players" [0m
+Rendering template within layouts/players
+Rendering players/index
+Completed in 27ms (View: 10, DB: 6) | 200 OK [http://localhost/players]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100403232819)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100403232819')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("invites")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("players")[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100404023854)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: table "invites" already exists: CREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("invites")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("players")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100404023854)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: table "invites" already exists: CREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" text, "password" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100403225834')[0m
+Migrating to CreateInvites (20100404023854)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100404023854)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "from_player_id" integer, "to_player_id" integer) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100404023854')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("invites")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("players")[0m
+  [4;36;1mPlayer Create (0.6ms)[0m   [0;1mINSERT INTO "players" ("created_at", "updated_at", "login", "password") VALUES('2010-04-04 03:10:13', '2010-04-04 03:10:13', 'lindsey', '1234')[0m
+  [4;35;1mPlayer Create (0.5ms)[0m   [0mINSERT INTO "players" ("created_at", "updated_at", "login", "password") VALUES('2010-04-04 03:10:24', '2010-04-04 03:10:24', 'matt', '1234')[0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE (password = '1234') [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100404023854)
+Migrating to CreateThemes (20100404031758)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "themes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "rock_html" text, "scissors_html" text, "paper_html" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100404031758')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("invites")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("players")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("themes")[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100404023854)
+Migrating to CreateThemes (20100404031758)
+Migrating to CreateGames (20100404031858)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "theme_id" integer) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100404031858')[0m
+Migrating to CreateMoves (20100404032802)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "moves" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "choice" text) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100404032802')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("games")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("invites")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("moves")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("players")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("themes")[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-04 00:11:11) [GET]
+
+ActionController::RoutingError (No route matches "/login" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:19:15) [GET]
+Rendering matt/login
+Completed in 100ms (View: 96, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:26:33) [GET]
+Rendering matt/login
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:27:10) [GET]
+Rendering matt/login
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:27:19) [GET]
+Rendering matt/login
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:30:13) [GET]
+Rendering matt/login
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:30:20) [GET]
+Rendering matt/login
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:33:12) [GET]
+abc
+Rendering matt/login
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:33:59) [GET]
+
+Rendering matt/login
+Completed in 13ms (View: 10, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:36:24) [GET]
+
+NameError (undefined local variable or method `log' for #<MattController:0xb7377000>):
+  app/controllers/matt_controller.rb:9:in `login'
+
+Rendered rescues/_trace (52.8ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:36:43) [GET]
+GET
+Rendering matt/login
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:37:02) [POST]
+  Parameters: {"login"=>"matt", "password"=>"1234"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (53.4ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:40:08) [GET]
+GET
+Rendering matt/login
+Completed in 33ms (View: 24, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:40:14) [GET]
+GET
+Rendering matt/login
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:40:19) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"matt", "password"=>"1234"}
+POST
+Rendering matt/login
+Completed in 6ms (View: 2, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:44:32) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"matt", "password"=>"1234"}
+POST
+
+NameError (undefined local variable or method `parameters' for #<MattController:0xb7270904>):
+  app/controllers/matt_controller.rb:8:in `login'
+
+Rendered rescues/_trace (52.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 00:46:32) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"matt", "password"=>"1234"}
+POST
+params[:login] is matt
+Rendering matt/login
+Completed in 31ms (View: 27, DB: 0) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt' AND "players"."password" = '123') LIMIT 1[0m
+  [4;35;1mPlayer Load (0.7ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."login" = 'matt' AND "players"."password" = '1234') LIMIT 1[0m
+  [4;36;1mPlayer Load (0.2ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" IS NULL AND "players"."password" IS NULL) LIMIT 1[0m
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:00:11) [GET]
+GET
+Rendering matt/login
+Completed in 31ms (View: 27, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:00:17) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"matt", "password"=>"1234"}
+POST
+params['login'] is matt
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+p is #<Player:0xb71fe494>
+session is _csrf_token8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=session_idc6e960056c25560709ef9b473f32f8bcflash
+Rendering matt/login
+Completed in 22ms (View: 1, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:04:12) [GET]
+GET
+Rendering matt/login
+Completed in 31ms (View: 27, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:04:16) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"matt", "password"=>"12"}
+POST
+  [4;36;1mPlayer Load (0.3ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '12' AND "players"."login" = 'matt') LIMIT 1[0m
+Somebody failed...
+Rendering matt/login
+Completed in 23ms (View: 1, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:04:27) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"matt", "password"=>"1234"}
+POST
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+SUCCESS
+Rendering matt/login
+Completed in 14ms (View: 2, DB: 1) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100404023854)
+Migrating to CreateThemes (20100404031758)
+Migrating to CreateGames (20100404031858)
+Migrating to CreateMoves (20100404032802)
+Migrating to AddLoggedInToPlayer (20100404050801)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mALTER TABLE "players" ADD "logged_in" date[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100404050801')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("games")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("invites")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("moves")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("players")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("themes")[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100404023854)
+Migrating to CreateThemes (20100404031758)
+Migrating to CreateGames (20100404031858)
+Migrating to CreateMoves (20100404032802)
+Migrating to AddLoggedInToPlayer (20100404050801)
+Migrating to RemoveLoggedInFromPlayer (20100404050909)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100404023854)
+Migrating to CreateThemes (20100404031758)
+Migrating to CreateGames (20100404031858)
+Migrating to CreateMoves (20100404032802)
+Migrating to AddLoggedInToPlayer (20100404050801)
+Migrating to RemoveLoggedInFromPlayer (20100404050909)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (41.0ms)[0m   [0mCREATE TEMPORARY TABLE "altered_players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" text, "password" text, "created_at" datetime, "updated_at" datetime, "logged_in" date) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("players")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mDROP TABLE "players"[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" text, "password" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("altered_players")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mDROP TABLE "altered_players"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100404050909')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("games")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("invites")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("moves")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("players")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("themes")[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100404023854)
+Migrating to CreateThemes (20100404031758)
+Migrating to CreateGames (20100404031858)
+Migrating to CreateMoves (20100404032802)
+Migrating to AddLoggedInToPlayer (20100404050801)
+Migrating to RemoveLoggedInFromPlayer (20100404050909)
+Migrating to AddLoggedIn2ToPlayer (20100404051102)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mALTER TABLE "players" ADD "logged_in" datetime[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100404051102')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("games")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("invites")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("moves")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("players")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("themes")[0m
+
+
+Processing InvitesController#index (for 127.0.0.1 at 2010-04-04 01:14:51) [GET]
+
+ArgumentError (Unknown key(s): Invite):
+  (eval):3:in `belongs_to'
+  app/models/invite.rb:3
+  app/controllers/invites_controller.rb:5:in `index'
+
+Rendered rescues/_trace (60.9ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-04 01:14:53) [GET]
+
+ActionController::RoutingError (No route matches "/invite" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing InvitesController#index (for 127.0.0.1 at 2010-04-04 01:14:55) [GET]
+
+ArgumentError (Unknown key(s): Invite):
+  (eval):3:in `belongs_to'
+  app/models/invite.rb:3
+  app/controllers/invites_controller.rb:5:in `index'
+
+Rendered rescues/_trace (70.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InvitesController#show (for 127.0.0.1 at 2010-04-04 01:15:00) [GET]
+  Parameters: {"id"=>"to_me"}
+
+ArgumentError (Unknown key(s): Invite):
+  (eval):3:in `belongs_to'
+  app/models/invite.rb:3
+  app/controllers/invites_controller.rb:16:in `show'
+
+Rendered rescues/_trace (66.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InvitesController#index (for 127.0.0.1 at 2010-04-04 01:15:07) [GET]
+
+ArgumentError (Unknown key(s): Invite):
+  (eval):3:in `belongs_to'
+  app/models/invite.rb:3
+  app/controllers/invites_controller.rb:5:in `index'
+
+Rendered rescues/_trace (60.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InvitesController#index (for 127.0.0.1 at 2010-04-04 01:15:21) [GET]
+
+ArgumentError (Unknown key(s): Invite):
+  (eval):3:in `belongs_to'
+  app/models/invite.rb:3
+  app/controllers/invites_controller.rb:5:in `index'
+
+Rendered rescues/_trace (58.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-04 01:15:28) [GET]
+
+ActionController::RoutingError (No route matches "/invite" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-04 01:15:30) [GET]
+
+ActionController::RoutingError (No route matches "/invite" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing InvitesController#index (for 127.0.0.1 at 2010-04-04 01:15:32) [GET]
+
+ArgumentError (Unknown key(s): Invite):
+  (eval):3:in `belongs_to'
+  app/models/invite.rb:3
+  app/controllers/invites_controller.rb:5:in `index'
+
+Rendered rescues/_trace (61.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2010-04-04 01:16:38) [GET]
+  [4;36;1mPlayer Load (1.3ms)[0m   [0;1mSELECT * FROM "players" [0m
+Rendering template within layouts/players
+Rendering players/index
+Completed in 72ms (View: 63, DB: 1) | 200 OK [http://localhost/players]
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2010-04-04 01:16:41) [GET]
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" [0m
+Rendering template within layouts/players
+Rendering players/index
+Completed in 35ms (View: 15, DB: 1) | 200 OK [http://localhost/players]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:18:19) [GET]
+GET
+Rendering matt/login
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:18:24) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"matt", "password"=>"1234"}
+POST
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+SUCCESS
+
+NoMethodError (undefined method `redirect' for #<MattController:0xb7382cac>):
+  app/controllers/matt_controller.rb:21:in `login'
+
+Rendered rescues/_trace (48.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:19:02) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"matt", "password"=>"1234"}
+POST
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+SUCCESS
+Redirected to http://localhost:3000/players
+Completed in 81ms (DB: 1) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2010-04-04 01:19:03) [GET]
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" [0m
+Rendering template within layouts/players
+Rendering players/index
+Completed in 59ms (View: 49, DB: 1) | 200 OK [http://localhost/players]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:19:50) [GET]
+GET
+Rendering matt/login
+Completed in 32ms (View: 28, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:19:52) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"", "password"=>""}
+POST
+  [4;36;1mPlayer Load (0.3ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '' AND "players"."login" = '') LIMIT 1[0m
+Somebody failed...
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/matt_controller.rb:16:in `flash'
+  app/controllers/matt_controller.rb:16:in `login'
+
+Rendered rescues/_trace (50.6ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:20:39) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"", "password"=>""}
+POST
+  [4;36;1mPlayer Load (0.3ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '' AND "players"."login" = '') LIMIT 1[0m
+Somebody failed...
+Rendering matt/login
+Completed in 48ms (View: 27, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:20:51) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"", "password"=>""}
+POST
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = '' AND "players"."login" = '') LIMIT 1[0m
+Somebody failed...
+Rendering matt/login
+Completed in 24ms (View: 1, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:21:45) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"", "password"=>""}
+POST
+  [4;36;1mPlayer Load (0.2ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '' AND "players"."login" = '') LIMIT 1[0m
+Somebody failed...
+Rendering matt/login
+Completed in 13ms (View: 1, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 01:22:43) [POST]
+  Parameters: {"authenticity_token"=>"8gZd5l6FkLshAaLezpoSkDz96sybYwwd7R61G/FspQ4=", "login"=>"", "password"=>""}
+POST
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = '' AND "players"."login" = '') LIMIT 1[0m
+Somebody failed...
+Rendering matt/login
+Completed in 19ms (View: 7, DB: 0) | 200 OK [http://localhost/login]

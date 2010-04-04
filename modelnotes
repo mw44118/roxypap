@@ -1,0 +1,5 @@
+20:02 < Radar> mw44118: Alright then, name the column from_player_id or
+to_player_id and define it as simply belongs_to :from_player,
+:class_name => "Player".
+               Rails will do the rest.
+
