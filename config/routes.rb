@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :invites
 
-  map.resources :players
+  # map.resources :invites
+
+  # map.resources :players
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -46,5 +47,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id.:format'
 
   map.connect '/login', :controller => 'matt', :action => 'login'
+  map.connect '/logout', :controller => 'matt', :action => 'logout'
 
 end

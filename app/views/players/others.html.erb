@@ -1,0 +1,30 @@
+<h1>Other logged-in players</h1>
+
+<h2><%= @invited %></h2>
+
+<ul>
+<% @players.each do |player| %>
+    <li>
+        <span><%= player.login %>
+
+        <% if @invited.index player.id  %>
+            <span>Invited</span>
+        <% else %>
+
+        <form action="/invites/invite" method="post">
+
+            <%= token_tag %>
+
+            <input type="hidden" name="to_player"
+                value="<%= player.id %>" />
+
+            <input type="submit" value="Invite to a game" />
+
+        </form>
+
+        <% end %>
+
+    </li>
+
+<% end %>
+</ul>

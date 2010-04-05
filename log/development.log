@@ -722,3 +722,851 @@ POST
 Somebody failed...
 Rendering matt/login
 Completed in 19ms (View: 7, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 15:31:26) [GET]
+GET
+Rendering matt/login
+Completed in 163ms (View: 158, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 15:31:35) [POST]
+  Parameters: {"authenticity_token"=>"0+6380Gkdf3/avYmNZb3RqaQU5ZC53h3m34unCUayl4=", "login"=>"matt", "password"=>"123"}
+POST
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '123' AND "players"."login" = 'matt') LIMIT 1[0m
+Somebody failed...
+Rendering matt/login
+Completed in 73ms (View: 2, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 15:35:01) [GET]
+GET
+Rendering matt/login
+Completed in 12ms (View: 9, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 15:35:04) [POST]
+  Parameters: {"authenticity_token"=>"0+6380Gkdf3/avYmNZb3RqaQU5ZC53h3m34unCUayl4=", "login"=>"a", "password"=>"r"}
+POST
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = 'r' AND "players"."login" = 'a') LIMIT 1[0m
+Somebody failed...
+Rendering matt/login
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 15:35:21) [POST]
+  Parameters: {"authenticity_token"=>"0+6380Gkdf3/avYmNZb3RqaQU5ZC53h3m34unCUayl4=", "login"=>"a", "password"=>"r"}
+POST
+  [4;36;1mPlayer Load (0.2ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = 'r' AND "players"."login" = 'a') LIMIT 1[0m
+Somebody failed...
+Rendering matt/login
+Completed in 23ms (View: 7, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 15:42:48) [POST]
+  Parameters: {"authenticity_token"=>"0+6380Gkdf3/avYmNZb3RqaQU5ZC53h3m34unCUayl4=", "login"=>"matt", "password"=>"1234"}
+POST
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+player matt logged in
+Redirected to http://localhost:3000/players
+Completed in 170ms (DB: 1) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2010-04-04 15:42:48) [GET]
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" [0m
+Rendering template within layouts/players
+Rendering players/index
+Completed in 62ms (View: 53, DB: 1) | 200 OK [http://localhost/players]
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2010-04-04 15:42:52) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/players
+Rendering players/show
+Completed in 62ms (View: 51, DB: 0) | 200 OK [http://localhost/players/2]
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-04 15:51:44) [GET]
+
+SyntaxError (/home/matt/checkouts/roxypap/app/controllers/matt_controller.rb:46: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (51.8ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-04 15:52:27) [GET]
+
+SyntaxError (/home/matt/checkouts/roxypap/app/controllers/matt_controller.rb:46: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (45.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-04 15:52:33) [GET]
+
+SyntaxError (/home/matt/checkouts/roxypap/app/controllers/matt_controller.rb:46: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (48.7ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 15:53:15) [GET]
+GET
+Rendering matt/login
+Completed in 31ms (View: 27, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 15:53:16) [GET]
+GET
+Rendering matt/login
+Completed in 6ms (View: 2, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-04 15:53:24) [GET]
+
+ActionController::RoutingError (No route matches "/logout" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-04 15:53:47) [GET]
+Rendering matt/logout
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-04 15:53:48) [GET]
+Rendering matt/logout
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-04 15:53:51) [POST]
+  Parameters: {"authenticity_token"=>"0+6380Gkdf3/avYmNZb3RqaQU5ZC53h3m34unCUayl4="}
+Redirected to http://localhost:3000/matt/login
+Completed in 5ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 15:53:51) [GET]
+GET
+Rendering matt/login
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/matt/login]
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" [0m
+  [4;35;1mPlayer Load (0.3ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is null) [0m
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 16:11:41) [GET]
+GET
+Rendering matt/login
+Completed in 31ms (View: 28, DB: 0) | 200 OK [http://localhost/matt/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 16:11:46) [POST]
+  Parameters: {"authenticity_token"=>"0+6380Gkdf3/avYmNZb3RqaQU5ZC53h3m34unCUayl4=", "login"=>"matt", "password"=>"1234"}
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+Redirected to http://localhost:3000/player/others
+Completed in 81ms (DB: 1) | 302 Found [http://localhost/login]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-04 16:11:47) [GET]
+
+ActionController::RoutingError (No route matches "/player/others" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2010-04-04 16:11:52) [GET]
+  Parameters: {"id"=>"others"}
+  [4;35;1mPlayer Load (0.3ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Player with ID=others):
+  app/controllers/players_controller.rb:23:in `show'
+
+Rendered rescues/_trace (103.8ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2010-04-04 16:12:47) [GET]
+  Parameters: {"id"=>"others"}
+  [4;36;1mPlayer Load (0.7ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Player with ID=others):
+  app/controllers/players_controller.rb:23:in `show'
+
+Rendered rescues/_trace (51.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2010-04-04 16:13:28) [GET]
+  Parameters: {"id"=>"others"}
+Rendering template within layouts/players
+Rendering players/show
+
+ActionView::TemplateError (undefined method `login' for nil:NilClass) on line #3 of app/views/players/show.html.erb:
+1: <p>
+2:   <b>Login:</b>
+3:   <%=h @player.login %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/players/show.html.erb:3
+
+Rendered rescues/_trace (63.0ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is null) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is null) [0m
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is null) [0m
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2010-04-04 16:17:45) [GET]
+  Parameters: {"id"=>"others"}
+Rendering template within layouts/players
+Rendering players/show
+
+ActionView::TemplateError (undefined method `login' for nil:NilClass) on line #3 of app/views/players/show.html.erb:
+1: <p>
+2:   <b>Login:</b>
+3:   <%=h @player.login %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/players/show.html.erb:3
+
+Rendered rescues/_trace (124.6ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:19:58) [GET]
+  [4;36;1mPlayer Load (0.7ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null) [0m
+Rendering template within layouts/players
+Rendering players/others
+
+ActionView::TemplateError (undefined local variable or method `new_player_path' for #<ActionView::Base:0xb737e864>) on line #9 of app/views/players/others.html.erb:
+6: <% end %>
+7: </ul>
+8: 
+9: <%= link_to 'New player', new_player_path %>
+
+    app/views/players/others.html.erb:9
+
+Rendered rescues/_trace (61.8ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:20:32) [GET]
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:20:32) [GET]
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 11ms (View: 2, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:20:34) [GET]
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 11ms (View: 2, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 16:21:47) [GET]
+GET
+Rendering matt/login
+Completed in 99ms (View: 95, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 16:21:53) [POST]
+  Parameters: {"authenticity_token"=>"0+6380Gkdf3/avYmNZb3RqaQU5ZC53h3m34unCUayl4=", "login"=>"matt", "password"=>"1234"}
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt' AND "players"."password" = '1234') LIMIT 1[0m
+  [4;35;1mPlayer Update (0.5ms)[0m   [0mUPDATE "players" SET "updated_at" = '2010-04-04 20:21:53', "logged_in" = '2010-04-04 20:21:53' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/players/others
+Completed in 187ms (DB: 1) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:21:53) [GET]
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 13ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+  [4;36;1mPlayer Load (0.3ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is null and id != 1) [0m
+  [4;35;1mPlayer Load (0.7ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is null) [0m
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:27:58) [GET]
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/players/others]
+  [4;36;1mPlayer Load (0.7ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:29:00) [GET]
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 10ms (View: 1, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:29:01) [GET]
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 10ms (View: 1, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:29:08) [GET]
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 11ms (View: 2, DB: 1) | 200 OK [http://localhost/players/others]
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mPlayer Update (0.5ms)[0m   [0mUPDATE "players" SET "updated_at" = '2010-04-04 20:29:52', "logged_in" = '2010-04-04 20:29:50' WHERE "id" = 1[0m
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:30:14) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 14ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:30:15) [GET]
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 14ms (View: 4, DB: 1) | 200 OK [http://localhost/players/others]
+  [4;36;1mPlayer Load (0.7ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:35:49) [GET]
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:45:43) [GET]
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 20ms (View: 10, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#show (for 127.0.0.1 at 2010-04-04 16:45:46) [GET]
+  Parameters: {"id"=>"invite", "to_player"=>"1"}
+Rendering template within layouts/invites
+Rendering invites/show
+
+ActionView::TemplateError (edit_invite_url failed to generate from {:id=>nil, :action=>"edit", :controller=>"invites"}, expected: {:controller=>"invites", :action=>"edit"}, diff: {:id=>nil}) on line #2 of app/views/invites/show.html.erb:
+1: 
+2: <%= link_to 'Edit', edit_invite_path(@invite) %> |
+3: <%= link_to 'Back', invites_path %>
+
+    (eval):16:in `edit_invite_path'
+    app/views/invites/show.html.erb:2
+
+Rendered rescues/_trace (127.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 16:50:30) [GET]
+  Parameters: {"to_player"=>"1"}
+
+ActionView::MissingTemplate (Missing template invites/invite.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 16:50:37) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 18ms (View: 10, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 16:50:38) [POST]
+  Parameters: {"to_player"=>"1"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (50.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 20:10:50) [GET]
+GET
+Rendering matt/login
+Completed in 278ms (View: 273, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-04 20:10:55) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "login"=>"matt", "password"=>"1234"}
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt' AND "players"."password" = '1234') LIMIT 1[0m
+  [4;35;1mPlayer Update (0.8ms)[0m   [0mUPDATE "players" SET "updated_at" = '2010-04-05 00:10:55', "logged_in" = '2010-04-05 00:10:55' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/players/others
+Completed in 257ms (DB: 2) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:10:56) [GET]
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 43ms (View: 34, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 20:10:59) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+
+ArgumentError (Unknown key(s): Invite):
+  (eval):3:in `belongs_to'
+  app/models/invite.rb:3
+  app/controllers/invites_controller.rb:9:in `invite'
+
+Rendered rescues/_trace (116.2ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:15:59) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 18ms (View: 6, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:16:00) [GET]
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 14ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 20:16:03) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+
+ArgumentError (Unknown key(s): Invite):
+  (eval):3:in `belongs_to'
+  app/models/invite.rb:3
+  app/controllers/invites_controller.rb:9:in `invite'
+
+Rendered rescues/_trace (59.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 20:16:33) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+
+ArgumentError (Unknown key(s): Invite):
+  (eval):3:in `belongs_to'
+  app/models/invite.rb:3
+  app/controllers/invites_controller.rb:9:in `invite'
+
+Rendered rescues/_trace (127.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 20:36:58) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+  [4;36;1mInvite Create (0.6ms)[0m   [0;1mINSERT INTO "invites" ("created_at", "to_player_id", "updated_at", "from_player_id") VALUES('2010-04-05 00:36:58', 1, '2010-04-05 00:36:58', 2)[0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Redirected to http://localhost:3000/players/others
+Completed in 97ms (DB: 1) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:36:58) [GET]
+  [4;36;1mPlayer Load (1.2ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 32ms (View: 22, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:45:29) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 14ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 20:46:05) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+  [4;36;1mInvite Create (0.6ms)[0m   [0;1mINSERT INTO "invites" ("created_at", "to_player_id", "updated_at", "from_player_id") VALUES('2010-04-05 00:46:05', 1, '2010-04-05 00:46:05', 2)[0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Redirected to http://localhost:3000/players/others
+Completed in 26ms (DB: 1) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:46:05) [GET]
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 14ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:46:20) [GET]
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 15ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 20:46:23) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+  [4;36;1mInvite Create (0.3ms)[0m   [0;1mINSERT INTO "invites" ("created_at", "to_player_id", "updated_at", "from_player_id") VALUES('2010-04-05 00:46:23', 1, '2010-04-05 00:46:23', 2)[0m
+  [4;35;1mPlayer Load (0.7ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Redirected to http://localhost:3000/players/others
+Completed in 45ms (DB: 1) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:46:23) [GET]
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 14ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:48:08) [GET]
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.index) on line #9 of app/views/players/others.html.erb:
+6:         <span><%= player.login %>
+7: 
+8: 
+9:         <% if @invited.index player.id  %>
+10:             <span>Invited</span>
+11:         <% else %>
+12: 
+
+    app/views/players/others.html.erb:9
+    app/views/players/others.html.erb:4:in `each'
+    app/views/players/others.html.erb:4
+
+Rendered rescues/_trace (63.4ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:48:54) [GET]
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 19ms (View: 10, DB: 1) | 200 OK [http://localhost/players/others]
+  [4;35;1mInvite Load (1.2ms)[0m   [0mSELECT * FROM "invites" [0m
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+  [4;35;1mInvite Load (0.3ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 33) [0m
+  [4;36;1mInvite Load (1.1ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+  [4;35;1mInvite Load (1.1ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:55:20) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 28ms (View: 11, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:55:21) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 22ms (View: 4, DB: 2) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:55:22) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.8ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 23ms (View: 5, DB: 2) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:55:22) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 23ms (View: 4, DB: 2) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:55:23) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:55:23) [GET]
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 22ms (View: 5, DB: 2) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:55:44) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.6ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:55:45) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 20:55:46) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/players/others]
+  [4;36;1mInvite Load (1.3ms)[0m   [0;1mSELECT * FROM "invites" [0m
+  [4;35;1mInvite Load (0.7ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 2 and to_player_id = 1) [0m
+  [4;36;1mInvite Load (1.0ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2 and to_player_id = 1) [0m
+  [4;35;1mInvite Load (0.7ms)[0m   [0mSELECT * FROM "invites" WHERE ("invites"."id" = 1) [0m
+  [4;36;1mInvite Destroy (0.7ms)[0m   [0;1mDELETE FROM "invites" WHERE "id" = 1[0m
+  [4;35;1mInvite Load (0.7ms)[0m   [0mSELECT * FROM "invites" WHERE ("invites"."id" = 2) [0m
+  [4;36;1mInvite Destroy (0.3ms)[0m   [0;1mDELETE FROM "invites" WHERE "id" = 2[0m
+  [4;35;1mInvite Load (0.7ms)[0m   [0mSELECT * FROM "invites" [0m
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" [0m
+  [4;35;1mInvite Load (0.3ms)[0m   [0mSELECT * FROM "invites" WHERE ("invites"."id" = 4) [0m
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" WHERE ("invites"."id" = 3) [0m
+  [4;35;1mInvite Destroy (0.4ms)[0m   [0mDELETE FROM "invites" WHERE "id" = 3[0m
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:09:42) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 80ms (View: 6, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 21:09:46) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+  [4;35;1mInvite Load (0.7ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 2 and to_player_id = '1') [0m
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Redirected to http://localhost:3000/players/others
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:09:46) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 20ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:13:38) [GET]
+  [4;35;1mPlayer Load (1.2ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 20ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:13:39) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 19ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:13:40) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 20ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 21:14:52) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+  [4;35;1mInvite Load (0.5ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 2 and to_player_id = '1') [0m
+results is 0
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Redirected to http://localhost:3000/players/others
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:14:52) [GET]
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 20ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:16:23) [GET]
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;35;1mInvite Load (0.2ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 103ms (View: 22, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 21:16:24) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+  [4;36;1mInvite Load (0.5ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2 and to_player_id = '1') [0m
+results is 0
+Returning an old one...
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Redirected to http://localhost:3000/players/others
+Completed in 33ms (DB: 1) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:16:24) [GET]
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;35;1mInvite Load (0.3ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 20ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 21:16:48) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+  [4;36;1mInvite Load (4.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2 and to_player_id = '1') [0m
+results is 0
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `session' for #<Class:0xb7160780>):
+  app/models/invite.rb:24:in `send_invite'
+  app/controllers/invites_controller.rb:9:in `invite'
+
+Rendered rescues/_trace (51.5ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 21:18:10) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+  [4;36;1mInvite Load (0.6ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2 and to_player_id = '1') [0m
+results is 0
+  [4;35;1mInvite Create (0.6ms)[0m   [0mINSERT INTO "invites" ("created_at", "to_player_id", "updated_at", "from_player_id") VALUES('2010-04-05 01:18:10', 1, '2010-04-05 01:18:10', 2)[0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Redirected to http://localhost:3000/players/others
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:18:10) [GET]
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.5ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 23ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 21:18:17) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+  [4;35;1mInvite Load (0.8ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 2 and to_player_id = '1') [0m
+results is 1
+Returning an old one...
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Redirected to http://localhost:3000/players/others
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:18:17) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.9ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 34ms (View: 5, DB: 2) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:19:22) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.5ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 23ms (View: 4, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:20:53) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.4ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 32ms (View: 16, DB: 1) | 200 OK [http://localhost/players/others]
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" [0m
+  [4;35;1mInvite Load (0.6ms)[0m   [0mSELECT * FROM "invites" WHERE ("invites"."id" = 4) [0m
+  [4;36;1mInvite Destroy (0.4ms)[0m   [0;1mDELETE FROM "invites" WHERE "id" = 4[0m
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:21:10) [GET]
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 19ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-04 21:21:12) [POST]
+  Parameters: {"authenticity_token"=>"ADuH4WT3wWV4o0gFJ5vObKCddfyGGMNLTmLKkJ4nID4=", "to_player"=>"1"}
+  [4;35;1mInvite Load (0.8ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 2 and to_player_id = '1') [0m
+  [4;36;1mInvite Create (0.4ms)[0m   [0;1mINSERT INTO "invites" ("created_at", "to_player_id", "updated_at", "from_player_id") VALUES('2010-04-05 01:21:12', 1, '2010-04-05 01:21:12', 2)[0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Redirected to http://localhost:3000/players/others
+Completed in 26ms (DB: 2) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-04 21:21:12) [GET]
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;35;1mInvite Load (0.4ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 77ms (View: 60, DB: 1) | 200 OK [http://localhost/players/others]

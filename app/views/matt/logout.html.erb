@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+
+<title>Logout</title>
+
+</head>
+
+<body>
+
+<h1>Logout</h1>
+
+<% if flash[:notice] -%>
+<div id="notice"><%= flash[:notice] %></div>
+<% end -%>
+
+<form action="/logout" method="post">
+
+    <%= token_tag %>
+
+    <input type="submit" value="Logout" />
+
+</form>
+
+</body>
+
+</html>

@@ -1,22 +1,8 @@
-<h1>Listing players</h1>
+<h1>Other logged-in players</h1>
 
-<table>
-  <tr>
-    <th>Login</th>
-    <th>Password</th>
-  </tr>
-
+<ul>
 <% @players.each do |player| %>
-  <tr>
-    <td><%=h player.login %></td>
-    <td><%=h player.password %></td>
-    <td><%= link_to 'Show', player %></td>
-    <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <li><%= player.login %>
 <% end %>
-</table>
+</ul>
 
-<br />
-
-<%= link_to 'New player', new_player_path %>

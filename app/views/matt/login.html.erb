@@ -12,6 +12,10 @@
 
 <h1>Login</h1>
 
+<% if flash[:notice] -%>
+<div id="notice"><%= flash[:notice] %></div>
+<% end -%>
+
 <form action="/login" method="post">
 
     <%= token_tag %>
