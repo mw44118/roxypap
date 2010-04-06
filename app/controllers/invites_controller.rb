@@ -29,7 +29,6 @@ class InvitesController < ApplicationController
 
   def accept
 
-
     if request.post?
 
       me = Player.find(session[:player_id])
@@ -38,11 +37,11 @@ class InvitesController < ApplicationController
       logger.debug("player #{me.login} accepted an invite from #{inv.from_player.login}.")
 
       # Create a game.
-      g = Game.new
+      g = Game.new.save
 
       # Create two empty moves (one for each player).
-      Move.new(:game_id=>g.id, :player_id=>me.id)
-      Move.new(:game_id=>g.id, :player_id=>inv.from_player_id)
+      Move.new(:game_id=>g.id, :player_id=>me.id).save
+      Move.new(:game_id=>g.id, :player_id=>inv.from_player_id).save
 
       # Delete the invite sent.
       inv.destroy
