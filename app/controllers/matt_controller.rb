@@ -4,6 +4,8 @@ class MattController < ApplicationController
 
   def login
 
+    @pagetitle = "Log in"
+
     if request.post?
 
       p = Player.find_by_login_and_password(
@@ -19,11 +21,11 @@ class MattController < ApplicationController
 
           p.save # Apparently, this is pretty important :)
 
-          if params['redirect_to'].nil?
+          if session[:redirect_to].nil?
               redirect_to :controller => 'players', :action => 'others'
 
           else
-              redirect_to params['redirect_to']
+              redirect_to session[:redirect_to]
 
           end
 
@@ -41,7 +43,7 @@ class MattController < ApplicationController
 
       session[:player_id] = nil
       flash[:notice] = "You are logged out"
-      redirect_to(:action => "login")
+      redirect_to :action => "login"
 
     end
 

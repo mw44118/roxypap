@@ -1,20 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<html>
-
-<head>
-
-<title>Login</title>
-
-</head>
-
-<body>
-
-<h1>Login</h1>
-
-<% if flash[:notice] -%>
-<div id="notice"><%= flash[:notice] %></div>
-<% end -%>
+<h1><%= @pagetitle %></h1>
 
 <form action="/login" method="post">
 
@@ -33,7 +17,3 @@
     <input type="submit" value="Login" />
 
 </form>
-
-</body>
-
-</html>

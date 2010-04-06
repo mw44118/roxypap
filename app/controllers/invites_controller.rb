@@ -17,4 +17,45 @@ class InvitesController < ApplicationController
 
   end
 
+  def received
+
+    @pagetitle = "Invites sent to me"
+
+    @invites_sent_to_me = Invite.all(
+      :conditions=>["to_player_id = ?", session[:player_id]])
+
+  end
+
+
+  def accept
+
+
+    if request.post?
+
+      me = Player.find(session[:player_id])
+      inv = Invite.find(params['invID'])
+
+      logger.debug("player #{me.login} accepted an invite from #{inv.from_player.login}.")
+
+      # Create a game.
+      g = Game.new
+
+      # Create two empty moves (one for each player).
+      Move.new(:game_id=>g.id, :player_id=>me.id)
+      Move.new(:game_id=>g.id, :player_id=>inv.from_player_id)
+
+      # Delete the invite sent.
+      inv.destroy
+
+      # Redirect to the game.
+      redirect_to :controller => 'games', :action => 'play', :id => g.id
+
+    else
+
+        redirect_to :controller => 'invites', :action => 'received'
+
+    end
+
+  end
+
 end

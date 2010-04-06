@@ -2,7 +2,12 @@
 
 class PlayersController < ApplicationController
 
+  before_filter :require_authentication
+
   def others
+
+    @pagetitle = "Other logged-in players"
+
     @players = Player.logged_in_players(session[:player_id])
 
     @invited = Invite.all(

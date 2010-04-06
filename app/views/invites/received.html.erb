@@ -1,0 +1,22 @@
+<h1><%= @pagetitle %></h1>
+
+<% if @invites_sent_to_me.count > 0 %>
+<ul>
+    <% for inv in @invites_sent_to_me %>
+    <li>you got an invite from <%= inv.from_player.login %>
+
+        <form action="/invites/accept" method="post">
+
+            <input type="hidden" name="invID" value="<%= inv.id %>" />
+
+            <input type="submit" value="Accept" />
+        </form>
+
+    </li>
+    <% end %>
+</ul>
+
+<% else %>
+<p>You ain't got no invites.</p>
+
+<% end %>
