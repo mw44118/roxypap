@@ -34,19 +34,13 @@ class InvitesController < ApplicationController
       me = Player.find(session[:player_id])
       inv = Invite.find(params['invID'])
 
-      logger.debug("player #{me.login} accepted an invite from #{inv.from_player.login}.")
-
-      # Create a game.
       g = Game.new.save
 
-      # Create two empty moves (one for each player).
       Move.new(:game_id=>g.id, :player_id=>me.id).save
       Move.new(:game_id=>g.id, :player_id=>inv.from_player_id).save
 
-      # Delete the invite sent.
       inv.destroy
 
-      # Redirect to the game.
       redirect_to :controller => 'games', :action => 'play', :id => g.id
 
     else

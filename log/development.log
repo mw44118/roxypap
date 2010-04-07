@@ -2047,3 +2047,1147 @@ Processing InvitesController#received (for 127.0.0.1 at 2010-04-06 13:52:25) [GE
 Rendering template within layouts/invites
 Rendering invites/received
 Completed in 24ms (View: 7, DB: 6) | 200 OK [http://localhost/invites/received]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-06 14:10:15) [GET]
+  [4;36;1mInvite Load (0.6ms)[0m   [0;1mSELECT * FROM "invites" WHERE (to_player_id = 2) [0m
+Rendering template within layouts/invites
+Rendering invites/received
+Completed in 101ms (View: 91, DB: 1) | 200 OK [http://localhost/invites/received]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-06 14:10:21) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.5ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 25ms (View: 6, DB: 2) | 200 OK [http://localhost/players/others]
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-06 14:10:29) [GET]
+Rendering template within layouts/matt
+Rendering matt/logout
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-06 14:10:30) [POST]
+  Parameters: {"authenticity_token"=>"ZfO9M0UNv9QU/N+Ha4NbanC50K3rYxebgg/0YSaa420="}
+Redirected to http://localhost:3000/matt/login
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-06 14:10:30) [GET]
+GET
+Rendering template within layouts/matt
+Rendering matt/login
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/matt/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-06 14:10:35) [POST]
+  Parameters: {"authenticity_token"=>"ZfO9M0UNv9QU/N+Ha4NbanC50K3rYxebgg/0YSaa420=", "login"=>"lindsey", "password"=>"1234"}
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."login" = 'lindsey' AND "players"."password" = '1234') LIMIT 1[0m
+  [4;36;1mPlayer Update (0.3ms)[0m   [0;1mUPDATE "players" SET "updated_at" = '2010-04-06 18:10:35', "logged_in" = '2010-04-06 18:10:35' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/players/others
+Completed in 77ms (DB: 1) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-06 14:10:35) [GET]
+session[:player_id] is 1
+  [4;35;1mPlayer Load (1.3ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 1) [0m
+  [4;36;1mInvite Load (0.3ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 1) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 22ms (View: 6, DB: 2) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-06 14:10:44) [GET]
+  [4;35;1mInvite Load (13.5ms)[0m   [0mSELECT * FROM "invites" WHERE (to_player_id = 1) [0m
+Rendering template within layouts/invites
+Rendering invites/received
+  [4;36;1mPlayer Load (0.7ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Completed in 36ms (View: 12, DB: 14) | 200 OK [http://localhost/invites/received]
+
+
+Processing InvitesController#accept (for 127.0.0.1 at 2010-04-06 14:10:47) [POST]
+  Parameters: {"invID"=>"7", "authenticity_token"=>"ZfO9M0UNv9QU/N+Ha4NbanC50K3rYxebgg/0YSaa420="}
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mInvite Load (0.4ms)[0m   [0;1mSELECT * FROM "invites" WHERE ("invites"."id" = 7) [0m
+  [4;35;1mGame Create (0.3ms)[0m   [0mINSERT INTO "games" ("created_at", "updated_at", "theme_id") VALUES('2010-04-06 18:10:47', '2010-04-06 18:10:47', NULL)[0m
+  [4;36;1mInvite Destroy (0.3ms)[0m   [0;1mDELETE FROM "invites" WHERE "id" = 7[0m
+Redirected to http://localhost:3000/games/play/2
+Completed in 48ms (DB: 2) | 302 Found [http://localhost/invites/accept]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 14:10:47) [GET]
+
+ActionController::RoutingError (No route matches "/games/play/2" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 14:12:08) [GET]
+
+ActionController::RoutingError (No route matches "/games/play/2" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#play (for 127.0.0.1 at 2010-04-06 14:12:17) [GET]
+  Parameters: {"id"=>"2"}
+
+LoadError (Expected /home/matt/checkouts/roxypap/app/controllers/games_controller.rb to define GamesController):
+  
+
+Rendered rescues/_trace (47.4ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 14:12:35) [GET]
+  Parameters: {"id"=>"2"}
+session[:player_id] is 1
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 2) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Game with ID=2):
+  app/controllers/games_controller.rb:6:in `play'
+
+Rendered rescues/_trace (51.1ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (not_found)
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-06 14:12:56) [GET]
+  [4;35;1mInvite Load (0.5ms)[0m   [0mSELECT * FROM "invites" WHERE (to_player_id = 1) [0m
+Rendering template within layouts/invites
+Rendering invites/received
+Completed in 46ms (View: 17, DB: 1) | 200 OK [http://localhost/invites/received]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 14:13:05) [GET]
+  Parameters: {"id"=>"1"}
+session[:player_id] is 1
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 1) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 96ms (View: 79, DB: 1) | 200 OK [http://localhost/games/play/1]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-06 14:13:16) [GET]
+session[:player_id] is 1
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 1) [0m
+  [4;35;1mInvite Load (0.2ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 1) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 82ms (View: 29, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-06 14:13:18) [POST]
+  Parameters: {"authenticity_token"=>"ZfO9M0UNv9QU/N+Ha4NbanC50K3rYxebgg/0YSaa420=", "to_player"=>"2"}
+  [4;36;1mInvite Load (0.6ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 1 and to_player_id = '2') [0m
+  [4;35;1mInvite Create (0.5ms)[0m   [0mINSERT INTO "invites" ("created_at", "to_player_id", "updated_at", "from_player_id") VALUES('2010-04-06 18:13:18', 2, '2010-04-06 18:13:18', 1)[0m
+  [4;36;1mPlayer Load (0.7ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Redirected to http://localhost:3000/players/others
+Completed in 29ms (DB: 2) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-06 14:13:18) [GET]
+session[:player_id] is 1
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 1) [0m
+  [4;36;1mInvite Load (0.5ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 1) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 21ms (View: 4, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-06 14:13:23) [GET]
+Rendering template within layouts/matt
+Rendering matt/logout
+Completed in 64ms (View: 61, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-06 14:13:25) [POST]
+  Parameters: {"authenticity_token"=>"ZfO9M0UNv9QU/N+Ha4NbanC50K3rYxebgg/0YSaa420="}
+Redirected to http://localhost:3000/matt/login
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-06 14:13:25) [GET]
+GET
+Rendering template within layouts/matt
+Rendering matt/login
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/matt/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-06 14:13:30) [POST]
+  Parameters: {"authenticity_token"=>"ZfO9M0UNv9QU/N+Ha4NbanC50K3rYxebgg/0YSaa420=", "login"=>"matt", "password"=>"1234"}
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."login" = 'matt' AND "players"."password" = '1234') LIMIT 1[0m
+  [4;36;1mPlayer Update (0.4ms)[0m   [0;1mUPDATE "players" SET "updated_at" = '2010-04-06 18:13:30', "logged_in" = '2010-04-06 18:13:30' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/players/others
+Completed in 273ms (DB: 1) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-06 14:13:30) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mInvite Load (0.3ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 2) [0m
+Rendering template within layouts/players
+Rendering players/others
+Completed in 19ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-06 14:13:34) [GET]
+  [4;35;1mInvite Load (0.8ms)[0m   [0mSELECT * FROM "invites" WHERE (to_player_id = 2) [0m
+Rendering template within layouts/invites
+Rendering invites/received
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Completed in 33ms (View: 23, DB: 1) | 200 OK [http://localhost/invites/received]
+
+
+Processing InvitesController#accept (for 127.0.0.1 at 2010-04-06 14:13:36) [POST]
+  Parameters: {"invID"=>"8", "authenticity_token"=>"ZfO9M0UNv9QU/N+Ha4NbanC50K3rYxebgg/0YSaa420="}
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mInvite Load (0.4ms)[0m   [0;1mSELECT * FROM "invites" WHERE ("invites"."id" = 8) [0m
+  [4;35;1mGame Create (0.3ms)[0m   [0mINSERT INTO "games" ("created_at", "updated_at", "theme_id") VALUES('2010-04-06 18:13:36', '2010-04-06 18:13:36', NULL)[0m
+  [4;36;1mInvite Destroy (0.3ms)[0m   [0;1mDELETE FROM "invites" WHERE "id" = 8[0m
+Redirected to http://localhost:3000/games/play/2
+Completed in 45ms (DB: 1) | 302 Found [http://localhost/invites/accept]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 14:13:36) [GET]
+  Parameters: {"id"=>"2"}
+session[:player_id] is 2
+  [4;35;1mGame Load (0.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 2) [0m
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 72ms (View: 1, DB: 1) | 200 OK [http://localhost/games/play/2]
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 1) [0m
+  [4;35;1mMove Load (0.3ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 1) [0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mGame Create (0.5ms)[0m   [0;1mINSERT INTO "games" ("created_at", "updated_at", "theme_id") VALUES('2010-04-06 18:27:17', '2010-04-06 18:27:17', NULL)[0m
+  [4;36;1mGame Create (0.6ms)[0m   [0;1mINSERT INTO "games" ("created_at", "updated_at", "theme_id") VALUES('2010-04-06 18:28:24', '2010-04-06 18:28:24', NULL)[0m
+  [4;36;1mGame Create (0.6ms)[0m   [0;1mINSERT INTO "games" ("created_at", "updated_at", "theme_id") VALUES('2010-04-06 18:29:00', '2010-04-06 18:29:00', NULL)[0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 5) [0m
+  [4;36;1mMove Load (0.3ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 5) [0m
+  [4;36;1mGame Create (0.5ms)[0m   [0;1mINSERT INTO "games" ("created_at", "updated_at", "theme_id") VALUES('2010-04-06 18:30:40', '2010-04-06 18:30:40', NULL)[0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 6) [0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 6) [0m
+  [4;36;1mGame Create (0.5ms)[0m   [0;1mINSERT INTO "games" ("created_at", "updated_at", "theme_id") VALUES('2010-04-06 18:32:21', '2010-04-06 18:32:21', NULL)[0m
+  [4;36;1mGame Create (0.6ms)[0m   [0;1mINSERT INTO "games" ("created_at", "updated_at", "theme_id") VALUES('2010-04-06 18:37:09', '2010-04-06 18:37:09', NULL)[0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 8) [0m
+  [4;36;1mGame Create (0.6ms)[0m   [0;1mINSERT INTO "games" ("created_at", "updated_at", "theme_id") VALUES('2010-04-06 18:39:49', '2010-04-06 18:39:49', NULL)[0m
+  [4;35;1mMove Create (0.3ms)[0m   [0mINSERT INTO "moves" ("created_at", "updated_at", "choice", "player_id", "game_id") VALUES('2010-04-06 18:39:49', '2010-04-06 18:39:49', NULL, 1, 9)[0m
+  [4;36;1mMove Create (0.3ms)[0m   [0;1mINSERT INTO "moves" ("created_at", "updated_at", "choice", "player_id", "game_id") VALUES('2010-04-06 18:39:49', '2010-04-06 18:39:49', NULL, 2, 9)[0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;36;1mMove Load (0.9ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mMove Load (0.9ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.9ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.8ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;36;1mPlayer Load (0.7ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.8ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.8ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 14:51:46) [GET]
+  Parameters: {"id"=>"2"}
+session[:player_id] is 2
+  [4;35;1mGame Load (0.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 2) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/games
+Rendering games/play
+  [4;35;1mMove Load (0.3ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 2) [0m
+
+ActionView::TemplateError (undefined method `player' for nil:NilClass) on line #3 of app/views/games/play.html.erb:
+1: <h1><%= @pagetitle %></h1>
+2: 
+3: <h2><%= @me.login %> versus <%= @g.my_opponent(@me).login %></h2>
+
+    app/models/game.rb:22:in `my_opponent'
+    app/views/games/play.html.erb:3
+
+Rendered rescues/_trace (63.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 14:52:03) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/games
+Rendering games/play
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Completed in 33ms (View: 12, DB: 2) | 200 OK [http://localhost/games/play/9]
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" LIMIT 1[0m
+  [4;35;1mMove Load (0.7ms)[0m   [0mSELECT * FROM "moves" WHERE (id=1) [0m
+  [4;36;1mMove Load (0.7ms)[0m   [0;1mSELECT * FROM "moves" WHERE (id=1) [0m
+  [4;35;1mMove Load (0.0ms)[0m   [0mSQLite3::SQLException: near "id": syntax error: id = 1[0m
+  [4;36;1mMove Load (0.0ms)[0m   [0;1mSQLite3::SQLException: near ""moves"": syntax error: "moves"."conditions" IN ('id = 1')[0m
+  [4;35;1mMove Load (0.7ms)[0m   [0mSELECT * FROM "moves" WHERE (id = 1) LIMIT 1[0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.5ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (1.2ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:27:16) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+  [4;35;1mGame Load (0.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.6ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+NameError (undefined local variable or method `g' for #<GamesController:0xb7760f7c>):
+  app/controllers/games_controller.rb:12:in `play'
+
+Rendered rescues/_trace (53.6ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:27:38) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.5ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 40ms (View: 9, DB: 2) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#move (for 127.0.0.1 at 2010-04-06 15:27:43) [POST]
+  Parameters: {"choice"=>"rock", "game_id"=>""}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (52.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:27:56) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 104ms (View: 10, DB: 2) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:33:02) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+
+ActionView::TemplateError (undefined local variable or method `choce' for #<ActionView::Base:0xb73312e4>) on line #16 of app/views/games/play.html.erb:
+13:     <% for choice in %w{rock scissors paper} %>
+14: 
+15:     <label>
+16:         <input type="radio" name="choice" value="<%= choce %>" />
+17:         <span><%= choice.titlecase %></span>
+18:     </label>
+19: 
+
+    app/views/games/play.html.erb:16
+    app/views/games/play.html.erb:13:in `each'
+    app/views/games/play.html.erb:13
+
+Rendered rescues/_trace (61.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:33:13) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 40ms (View: 9, DB: 2) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#move (for 127.0.0.1 at 2010-04-06 15:33:59) [POST]
+  Parameters: {"choice"=>"paper", "authenticity_token"=>"ZfO9M0UNv9QU/N+Ha4NbanC50K3rYxebgg/0YSaa420=", "game_id"=>""}
+session[:player_id] is 2
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Game with ID=):
+  app/controllers/games_controller.rb:20:in `move'
+
+Rendered rescues/_trace (53.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (not_found)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:34:17) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+  [4;35;1mGame Load (0.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.6ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 42ms (View: 3, DB: 2) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:35:23) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.6ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 35ms (View: 3, DB: 2) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:35:56) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb7483174>.
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.6ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.5ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 35ms (View: 3, DB: 2) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:36:10) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb741c4c4>.
+@g.id is 9.
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.6ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.7ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.5ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 36ms (View: 4, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:36:25) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb72d7c80>.
+@g.id is 9.
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.7ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.5ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 51ms (View: 10, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#move (for 127.0.0.1 at 2010-04-06 15:36:29) [POST]
+  Parameters: {"choice"=>"paper", "authenticity_token"=>"ZfO9M0UNv9QU/N+Ha4NbanC50K3rYxebgg/0YSaa420=", "game_id"=>"9"}
+session[:player_id] is 2
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.5ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Redirected to http://localhost:3000/games/play/9
+Completed in 30ms (DB: 2) | 302 Found [http://localhost/games/move]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:36:29) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb710982c>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 34ms (View: 4, DB: 2) | 200 OK [http://localhost/games/play/9]
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.6ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.5ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:38:13) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb7519084>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 35ms (View: 3, DB: 2) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#move (for 127.0.0.1 at 2010-04-06 15:38:15) [POST]
+  Parameters: {"choice"=>"paper", "authenticity_token"=>"ZfO9M0UNv9QU/N+Ha4NbanC50K3rYxebgg/0YSaa420=", "game_id"=>"9"}
+session[:player_id] is 2
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.5ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;35;1mMove Update (0.4ms)[0m   [0mUPDATE "moves" SET "updated_at" = '2010-04-06 19:38:15', "choice" = 'paper' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/games/play/9
+Completed in 63ms (DB: 2) | 302 Found [http://localhost/games/move]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 15:38:15) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb7333cb0>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 35ms (View: 3, DB: 2) | 200 OK [http://localhost/games/play/9]
+  [4;35;1mMove Load (1.0ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 20:55:52) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+
+SyntaxError (/home/matt/checkouts/roxypap/app/models/game.rb:44: syntax error, unexpected $end, expecting kEND):
+  app/controllers/games_controller.rb:9:in `play'
+
+Rendered rescues/_trace (57.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 20:56:46) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb751aa74>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+SyntaxError (/home/matt/checkouts/roxypap/app/models/move.rb:18: syntax error, unexpected kOR
+    or (m1.choice == 'scissors' and m2.choice == 'paper')
+      ^
+/home/matt/checkouts/roxypap/app/models/move.rb:19: syntax error, unexpected kOR, expecting kEND
+    or (m1.choice == 'paper' and m2.choice == 'rock')
+      ^):
+  app/models/game.rb:23:in `my_opponent'
+  app/controllers/games_controller.rb:16:in `play'
+
+Rendered rescues/_trace (129.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 20:57:55) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb725de6c>.
+@g.id is 9.
+  [4;35;1mPlayer Load (1.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+SyntaxError (/home/matt/checkouts/roxypap/app/models/move.rb:19: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'scissors' and m2.choice == 'paper')
+        ^
+/home/matt/checkouts/roxypap/app/models/move.rb:20: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'paper' and m2.choice == 'rock'))
+        ^):
+  app/models/game.rb:23:in `my_opponent'
+  app/controllers/games_controller.rb:16:in `play'
+
+Rendered rescues/_trace (72.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 20:58:33) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb7490838>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+SyntaxError (/home/matt/checkouts/roxypap/app/models/move.rb:19: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'scissors' and m2.choice == 'paper')
+        ^
+/home/matt/checkouts/roxypap/app/models/move.rb:20: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'paper' and m2.choice == 'rock'))
+        ^):
+  app/models/game.rb:23:in `my_opponent'
+  app/controllers/games_controller.rb:16:in `play'
+
+Rendered rescues/_trace (130.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 20:59:54) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb71f4854>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+SyntaxError (/home/matt/checkouts/roxypap/app/models/move.rb:19: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'scissors' and m2.choice == 'paper')
+        ^
+/home/matt/checkouts/roxypap/app/models/move.rb:20: syntax error, unexpected kOR, expecting ')'
+      or  (m1.choice == 'paper' and m2.choice == 'rock'))
+        ^):
+  app/models/game.rb:23:in `my_opponent'
+  app/controllers/games_controller.rb:16:in `play'
+
+Rendered rescues/_trace (66.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:00:10) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb774e8e0>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 103ms (View: 72, DB: 2) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:00:11) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb738a77c>.
+@g.id is 9.
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.6ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.7ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 36ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:00:33) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb725e6c8>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+SyntaxError (/home/matt/checkouts/roxypap/app/models/move.rb:19: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'scissors' and m2.choice == 'paper')
+        ^
+/home/matt/checkouts/roxypap/app/models/move.rb:20: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'paper' and m2.choice == 'rock'))
+        ^):
+  app/models/game.rb:23:in `my_opponent'
+  app/controllers/games_controller.rb:16:in `play'
+
+Rendered rescues/_trace (66.1ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:00:58) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb749db8c>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+SyntaxError (/home/matt/checkouts/roxypap/app/models/move.rb:19: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'scissors' and m2.choice == 'paper')
+        ^
+/home/matt/checkouts/roxypap/app/models/move.rb:20: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'paper' and m2.choice == 'rock'))
+        ^):
+  app/models/game.rb:23:in `my_opponent'
+  app/controllers/games_controller.rb:16:in `play'
+
+Rendered rescues/_trace (138.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:01:21) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb71eb31c>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+SyntaxError (/home/matt/checkouts/roxypap/app/models/move.rb:18: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'scissors' and m2.choice == 'paper')
+        ^
+/home/matt/checkouts/roxypap/app/models/move.rb:19: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'paper' and m2.choice == 'rock'))
+        ^):
+  app/models/game.rb:23:in `my_opponent'
+  app/controllers/games_controller.rb:16:in `play'
+
+Rendered rescues/_trace (65.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:01:26) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb77080d4>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+SyntaxError (/home/matt/checkouts/roxypap/app/models/move.rb:18: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'scissors' and ...
+        ^):
+  app/models/game.rb:23:in `my_opponent'
+  app/controllers/games_controller.rb:16:in `play'
+
+Rendered rescues/_trace (69.2ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:01:27) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb71abaf0>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+SyntaxError (/home/matt/checkouts/roxypap/app/models/move.rb:18: syntax error, unexpected kOR, expecting ')'
+      or (m1.choice == 'scissors' and ...
+        ^):
+  app/models/game.rb:23:in `my_opponent'
+  app/controllers/games_controller.rb:16:in `play'
+
+Rendered rescues/_trace (65.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:01:33) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb747aa10>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 98ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:01:34) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb732fcdc>.
+@g.id is 9.
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.7ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 35ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:01:59) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb7210dec>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 39ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:02:00) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.8ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb71464d4>.
+@g.id is 9.
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.6ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 35ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+  [4;36;1mMove Create (0.6ms)[0m   [0;1mINSERT INTO "moves" ("created_at", "updated_at", "choice", "player_id", "game_id") VALUES('2010-04-07 01:03:07', '2010-04-07 01:03:07', 'paper', 1, 9)[0m
+  [4;35;1mGame Load (0.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;36;1mMove Load (1.0ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:04:34) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb7576dec>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.5ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 33ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:04:35) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb77081c4>.
+@g.id is 9.
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.6ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.5ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;35;1mMove Load (0.5ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 98ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+  [4;35;1mMove Update (0.5ms)[0m   [0mUPDATE "moves" SET "updated_at" = '2010-04-07 01:04:38', "choice" = 'rock' WHERE "id" = 1[0m
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:04:40) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb7393dcc>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.7ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 35ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:04:41) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb726de98>.
+@g.id is 9.
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.7ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 34ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+  [4;36;1mPlayer Load (0.7ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:05:28) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb71846bc>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 34ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:05:29) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb762dc68>.
+@g.id is 9.
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.7ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 33ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:05:56) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb77967e4>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.7ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 35ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:05:57) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb73e09c4>.
+@g.id is 9.
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.6ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.5ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 41ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:06:09) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb73c4300>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.7ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.5ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 138ms (View: 18, DB: 3) | 200 OK [http://localhost/games/play/9]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:06:11) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;35;1mGame Load (0.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb7205b2c>.
+@g.id is 9.
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.6ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;36;1mPlayer Load (0.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 34ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+  [4;35;1mMove Load (1.0ms)[0m   [0mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-06 21:08:38) [GET]
+  Parameters: {"id"=>"9"}
+session[:player_id] is 2
+params[:id] is 9
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 9) [0m
+@g is #<Game:0xb7124780>.
+@g.id is 9.
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mMove Load (0.6ms)[0m   [0;1mSELECT * FROM "moves" WHERE ("moves".game_id = 9) [0m
+  [4;35;1mPlayer Load (0.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mMove Load (0.4ms)[0m   [0mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 2) LIMIT 1[0m
+  [4;36;1mMove Load (0.4ms)[0m   [0;1mSELECT * FROM "moves" WHERE (game_id = 9 and player_id = 1) LIMIT 1[0m
+Rendering template within layouts/games
+Rendering games/play
+Completed in 34ms (View: 3, DB: 3) | 200 OK [http://localhost/games/play/9]

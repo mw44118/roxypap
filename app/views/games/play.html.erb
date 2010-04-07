@@ -1,0 +1,36 @@
+<h1><%= @pagetitle %></h1>
+
+<h2><%= @me.login %> versus <%= @my_opponent.login %></h2>
+
+<% if @my_move.choice.nil? %>
+
+<form action="/games/move" method="post">
+
+    <%= token_tag %>
+
+    <input type="hidden" name="game_id" value="<%= @g.id %>" />
+
+    <% for choice in %w{rock scissors paper} %>
+
+    <label>
+        <input type="radio" name="choice" value="<%= choice %>" />
+        <span><%= choice.titlecase %></span>
+    </label>
+
+    <% end %>
+
+
+    <input type="submit" value="Make your choice" />
+
+</form>
+
+<% else %>
+
+<h2>You chose <%= @my_move.choice %>.</h2>
+
+<% if @g.winner %>
+<h2><%= @g.winner.login %> is the winner!</h2>
+<% end %>
+
+
+<% end %>
