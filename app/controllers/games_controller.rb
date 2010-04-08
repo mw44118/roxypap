@@ -4,12 +4,7 @@ class GamesController < ApplicationController
 
   def play
 
-    logger.debug "params[:id] is #{params[:id]}"
-
     @g = Game.find(params[:id])
-    logger.debug "@g is #{@g}."
-    logger.debug "@g.id is #{@g.id}."
-
     @me = Player.find(session[:player_id])
     @pagetitle = "Game #{@g.id}"
 
@@ -26,18 +21,22 @@ class GamesController < ApplicationController
     if request.post?
 
       @g = Game.find(params[:game_id])
-      @me = Player.find(session[:player_id])
-
-      @m = Move.first(
-        :conditions=>["game_id = ? and player_id = ?", @g.id, @me.id])
-
+      @m = @g.my_move(session[:player_id])
       @m.choice = params[:choice]
       @m.save
+
       flash[:notice] = "Recorded your move (#{@m.choice})."
 
     end
 
     redirect_to :action => "play", :id => @g.id
+
+  end
+
+  def open
+
+    # This belongs in SQL.
+    @open_games = Game.all.find_all
 
   end
 

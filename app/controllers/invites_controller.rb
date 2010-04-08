@@ -41,6 +41,8 @@ class InvitesController < ApplicationController
 
       inv.destroy
 
+      flash[:notice] "Created game #{g.id}"
+
       redirect_to :controller => 'games', :action => 'play', :id => g.id
 
     else

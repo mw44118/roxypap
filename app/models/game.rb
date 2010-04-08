@@ -3,6 +3,8 @@
 class Game < ActiveRecord::Base
   has_many :moves, :class_name => "Move"
 
+  belongs_to :winner, :class_name => "Player"
+
   def self.setup_game(player_1_id, player_2_id)
 
     g = Game.new
@@ -19,22 +21,26 @@ class Game < ActiveRecord::Base
 
   def my_opponent(me)
 
-    # This could be more efficient if done with SQL
     moves.find_all do |m| m.player != me end [0].player
 
   end
 
-  def my_move(me)
+  def my_move(myID)
+    Move.find_by_game_id_and_player_id id, myID
+  end
 
-    Move.first(:conditions=>["game_id = ? and player_id = ?", id, me.id])
+  def winning_move
+
+    if moves.length != 2
+      return nil
+    end
+
+    m1, m2 = moves
+    Move.calculate_winning_move(m1, m2)
 
   end
 
   def winner
-
-    m1, m2 = moves
-
-    winning_move = Move.calculate_winning_move(m1, m2)
 
     if winning_move
       return winning_move.player

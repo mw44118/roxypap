@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+
+<title><%= @pagetitle %></title>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+</head>
+
+<body>
+
+    <ul>
+
+        <li><a href="/leaderboard">Leader Board</a></li>
+        <li><a href="/players/others">Other players</a></li>
+        <li><a href="/invites/received">Invites</a></li>
+
+        <% if session[:player_id] %>
+        <li><a href="/logout">Log out</a></li>
+        <% else %>
+        <li><a href="/login">Log in</a></li>
+        <% end %>
+
+    </ul>
+
+    <p style="color: green"><%= flash[:notice] %></p>
+
+    <%= yield %>
+
+</body>
+
+</html>
