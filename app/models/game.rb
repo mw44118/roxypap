@@ -1,33 +1,90 @@
 # vim: set tabstop=2 :
 
 class Game < ActiveRecord::Base
-  has_many :moves, :class_name => "Move"
+
+  belongs_to :theme
+
+  belongs_to :inviter, :class_name => "Player"
+  belongs_to :invited, :class_name => "Player"
 
   belongs_to :winner, :class_name => "Player"
 
-  def self.setup_game(player_1_id, player_2_id)
+  def make_move(myID, move)
 
-    g = Game.new
-    g.save
+    if myID == inviter
+      inviter_move = move
+    end
 
-    m1 = Move.new(:game=>g, :player_id=>player_1_id)
-
-    m2 = Move.new(:game=>g, :player_id=>player_2_id)
-    m2.save
-
-    return g
+    if myID == invited
+      invited_move = move
+    end
 
   end
 
-  def my_opponent(me)
 
-    moves.find_all do |m| m.player != me end [0].player
+  def game_status()
+
+    if inviter_move and invited_move
+      return "finished"
+    end
+
+    if inviter_move or invited_move
+      return "in progress"
+    end
+
+    if accepted
+      return "invitation accepted"
+    end
+
+    return "invitation sent"
 
   end
+
+
+  def winner()
+
+    if inviter_move.nil? or invited_move.nil? or inviter_move == invited_move
+      return nil
+    end
+
+    if ((inviter_move == 'rock' and invited_move == 'scissors') or (inviter_move == 'scissors' and invited_move == 'paper') or (inviter_move == 'paper' and invited_move == 'rock'))
+
+      return inviter
+
+    else
+
+      return invited
+
+    end
+
+  end
+
+
+  def self.send_invite(from_player_id, to_player_id)
+
+    g = Game.new(
+      :inviter=>from_player_id,
+      :invited=>to_player_id)
+
+  end
+
+  def my_opponent(myID)
+
+    if myID == inviter
+      return invited
+    end
+
+    if myID == invited
+      return inviter
+    end
+
+  end
+
 
   def my_move(myID)
     Move.find_by_game_id_and_player_id id, myID
   end
+
 
   def winning_move
 

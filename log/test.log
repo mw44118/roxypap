@@ -1,0 +1,52 @@
+  [4;36;1mGame Load (0.4ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = NULL and accepted = 0) [0m
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = NULL and accepted = 0) [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited = NULL and accepted = 0) [0m
+  [4;36;1mPlayer Create (0.4ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:28:29', NULL, '2010-04-09 19:28:29', 'matt', NULL)[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:28:29', NULL, '2010-04-09 19:28:29', 'lindsey', NULL)[0m
+  [4;36;1mGame Create (0.2ms)[0m   [0;1mINSERT INTO "games" ("winner", "created_at", "inviter", "updated_at", "theme_id", "invited", "inviter_move", "accepted", "invited_move") VALUES(NULL, '2010-04-09 19:28:29', NULL, '2010-04-09 19:28:29', NULL, NULL, NULL, 'f', NULL)[0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mGame Load (0.1ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mPlayer Create (0.4ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:29:06', NULL, '2010-04-09 19:29:06', 'matt', NULL)[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:29:06', NULL, '2010-04-09 19:29:06', 'lindsey', NULL)[0m
+  [4;36;1mGame Create (0.2ms)[0m   [0;1mINSERT INTO "games" ("winner", "created_at", "inviter", "updated_at", "theme_id", "invited", "inviter_move", "accepted", "invited_move") VALUES(NULL, '2010-04-09 19:29:06', NULL, '2010-04-09 19:29:06', NULL, NULL, NULL, 'f', NULL)[0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mGame Load (0.1ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mPlayer Create (0.4ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:29:34', NULL, '2010-04-09 19:29:34', 'matt', NULL)[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:29:34', NULL, '2010-04-09 19:29:34', 'lindsey', NULL)[0m
+  [4;36;1mGame Create (0.2ms)[0m   [0;1mINSERT INTO "games" ("winner", "created_at", "inviter", "updated_at", "theme_id", "invited", "inviter_move", "accepted", "invited_move") VALUES(NULL, '2010-04-09 19:29:34', NULL, '2010-04-09 19:29:34', NULL, NULL, NULL, 'f', NULL)[0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mPlayer Create (0.4ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:29:56', NULL, '2010-04-09 19:29:56', 'matt', NULL)[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:29:56', NULL, '2010-04-09 19:29:56', 'lindsey', NULL)[0m
+  [4;36;1mGame Create (0.2ms)[0m   [0;1mINSERT INTO "games" ("winner", "created_at", "inviter", "updated_at", "theme_id", "invited", "inviter_move", "accepted", "invited_move") VALUES(NULL, '2010-04-09 19:29:56', NULL, '2010-04-09 19:29:56', NULL, NULL, NULL, 'f', NULL)[0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mGame Load (0.1ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mPlayer Create (0.5ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:30:16', NULL, '2010-04-09 19:30:16', 'matt', NULL)[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:30:16', NULL, '2010-04-09 19:30:16', 'lindsey', NULL)[0m
+  [4;36;1mGame Create (0.2ms)[0m   [0;1mINSERT INTO "games" ("winner", "created_at", "inviter", "updated_at", "theme_id", "invited", "inviter_move", "accepted", "invited_move") VALUES(NULL, '2010-04-09 19:30:16', NULL, '2010-04-09 19:30:16', NULL, NULL, NULL, 'f', NULL)[0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mPlayer Create (0.4ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:30:57', NULL, '2010-04-09 19:30:57', 'matt', NULL)[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:30:57', NULL, '2010-04-09 19:30:57', 'lindsey', NULL)[0m
+  [4;36;1mGame Create (0.2ms)[0m   [0;1mINSERT INTO "games" ("winner", "created_at", "inviter", "updated_at", "theme_id", "invited", "inviter_move", "accepted", "invited_move") VALUES(NULL, '2010-04-09 19:30:57', NULL, '2010-04-09 19:30:57', NULL, NULL, NULL, 'f', NULL)[0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mGame Load (0.1ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 0) [0m
+  [4;36;1mPlayer Create (0.4ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:31:15', NULL, '2010-04-09 19:31:15', 'matt', NULL)[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:31:15', NULL, '2010-04-09 19:31:15', 'lindsey', NULL)[0m
+  [4;36;1mGame Create (0.2ms)[0m   [0;1mINSERT INTO "games" ("winner", "created_at", "inviter", "updated_at", "theme_id", "invited", "inviter_move", "accepted", "invited_move") VALUES(NULL, '2010-04-09 19:31:15', NULL, '2010-04-09 19:31:15', NULL, NULL, NULL, 'f', NULL)[0m
+  [4;35;1mGame Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: false: SELECT * FROM "games" WHERE (invited = 980190964 and accepted = false) [0m
+  [4;36;1mPlayer Create (0.4ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:33:49', NULL, '2010-04-09 19:33:49', 'matt', NULL)[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:33:49', NULL, '2010-04-09 19:33:49', 'lindsey', NULL)[0m
+  [4;36;1mGame Create (0.3ms)[0m   [0;1mINSERT INTO "games" ("winner", "created_at", "inviter", "updated_at", "theme_id", "invited", "inviter_move", "accepted", "invited_move") VALUES(NULL, '2010-04-09 19:33:49', NULL, '2010-04-09 19:33:49', NULL, NULL, NULL, 'f', NULL)[0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = 980190964 and accepted = 'f') [0m
+  [4;36;1mPlayer Create (0.4ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:34:26', NULL, '2010-04-09 19:34:26', 'matt', NULL)[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:34:26', NULL, '2010-04-09 19:34:26', 'lindsey', NULL)[0m
+  [4;36;1mGame Create (0.2ms)[0m   [0;1mINSERT INTO "games" ("winner", "created_at", "inviter", "updated_at", "theme_id", "invited", "inviter_move", "accepted", "invited_move") VALUES(NULL, '2010-04-09 19:34:26', NULL, '2010-04-09 19:34:26', NULL, NULL, NULL, 'f', NULL)[0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited = 980190964) [0m
+  [4;36;1mGame Load (0.1ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = 980190964) [0m
+  [4;36;1mPlayer Create (0.4ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:41:23', NULL, '2010-04-09 19:41:23', 'matt', NULL)[0m
+  [4;35;1mPlayer Create (0.3ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-09 19:41:23', NULL, '2010-04-09 19:41:23', 'lindsey', NULL)[0m
+  [4;36;1mGame Create (0.3ms)[0m   [0;1mINSERT INTO "games" ("winner", "created_at", "inviter", "updated_at", "theme_id", "invited", "inviter_move", "accepted", "invited_move") VALUES(NULL, '2010-04-09 19:41:23', NULL, '2010-04-09 19:41:23', NULL, NULL, NULL, 'f', NULL)[0m
+  [4;35;1mGame Load (0.3ms)[0m   [0mSELECT * FROM "games" WHERE (invited = 980190964) [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited = 980190964) [0m
