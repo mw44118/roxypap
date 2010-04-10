@@ -4062,3 +4062,36 @@ Migrating to RenameGameColumns (20100409193824)
   [4;36;1mGame Update (0.8ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-09 19:43:56', "inviter_id" = 2 WHERE "id" = 10[0m
   [4;36;1mPlayer Load (0.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
   [4;35;1mGame Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: inviter: SELECT * FROM "games" WHERE (inviter = 2 and accepted = 'f') [0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlayers (20100403225834)
+Migrating to CreateInvites (20100404023854)
+Migrating to CreateThemes (20100404031758)
+Migrating to CreateGames (20100404031858)
+Migrating to CreateMoves (20100404032802)
+Migrating to AddLoggedInToPlayer (20100404050801)
+Migrating to RemoveLoggedInFromPlayer (20100404050909)
+Migrating to AddLoggedIn2ToPlayer (20100404051102)
+Migrating to AddColumnsToMove (20100406174408)
+Migrating to AddWinnerToGames (20100408183111)
+Migrating to DoEverythingInOneTable (20100408201232)
+Migrating to AddAcceptedToGame (20100409184558)
+Migrating to RenameGameColumns (20100409193824)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("games")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("invites")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("moves")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("players")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("themes")[0m

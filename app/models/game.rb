@@ -97,12 +97,4 @@ class Game < ActiveRecord::Base
 
   end
 
-  def winner
-
-    if winning_move
-      return winning_move.player
-    end
-
-  end
-
 end

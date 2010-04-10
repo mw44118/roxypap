@@ -12,15 +12,15 @@ class Player < ActiveRecord::Base
   def invite(invited)
     g = Game.new(:inviter=>self, :invited=>invited)
     g.save
-    g
+    return g
   end
 
   def received_invites
-    Game.all(:conditions=>["invited = ?", self])
+    Game.all(:conditions=>["invited_id = ? and accepted = ?", id, false])
   end
 
   def delivered_invites
-    Game.all(:conditions=>["inviter = ? and accepted = ?", self, false])
+    return Game.all(:conditions=>["inviter_id = ? and accepted = ?", id, false])
   end
 
   def make_move(g, move)
@@ -34,6 +34,13 @@ class Player < ActiveRecord::Base
       g.invited_move = move
       return g
     end
+
+  end
+
+  def accept_invite(g)
+
+    g.accepted = true
+    g.save
 
   end
 
