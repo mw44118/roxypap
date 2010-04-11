@@ -9,39 +9,34 @@ class Game < ActiveRecord::Base
 
   belongs_to :winner, :class_name => "Player"
 
-  def make_move(myID, move)
+  def make_move(mover, move)
 
-    if myID == inviter
-      inviter_move = move
+    if mover == inviter
+      self.inviter_move = move
     end
 
-    if myID == invited
-      invited_move = move
+    if mover == invited
+      self.invited_move = move
     end
+
+    if !self.inviter_move.nil? ^ !self.invited_move.nil?
+      self.status = "in progress"
+    end
+
+    if self.inviter_move and self.invited_move
+      self.winner = figure_out_winner
+      if self.winner
+        self.status = 'finished'
+      else
+        self.status = 'tied'
+      end
+    end
+
+    save
 
   end
 
-
-  def game_status()
-
-    if inviter_move and invited_move
-      return "finished"
-    end
-
-    if inviter_move or invited_move
-      return "in progress"
-    end
-
-    if accepted
-      return "invitation accepted"
-    end
-
-    return "invitation sent"
-
-  end
-
-
-  def winner()
+  def figure_out_winner()
 
     if inviter_move.nil? or invited_move.nil? or inviter_move == invited_move
       return nil
@@ -60,11 +55,13 @@ class Game < ActiveRecord::Base
   end
 
 
-  def self.send_invite(from_player_id, to_player_id)
+  def self.send_invite(inviter, invited)
 
-    g = Game.new(
-      :inviter=>from_player_id,
-      :invited=>to_player_id)
+    g = Game.new :inviter=>inviter, :invited=>invited,
+      :status=>"invitation sent"
+
+    g.save
+    return g
 
   end
 
@@ -80,20 +77,10 @@ class Game < ActiveRecord::Base
 
   end
 
-
-  def my_move(myID)
-    Move.find_by_game_id_and_player_id id, myID
-  end
-
-
-  def winning_move
-
-    if moves.length != 2
-      return nil
-    end
-
-    m1, m2 = moves
-    Move.calculate_winning_move(m1, m2)
+  def accept_invite
+    self.status = "invitation accepted"
+    self.accepted = true
+    self.save
 
   end
 

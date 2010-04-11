@@ -1,13 +1,2 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  description: MyText
-  rock_html: MyText
-  scissors_html: MyText
-  paper_html: MyText
-
-two:
-  description: MyText
-  rock_html: MyText
-  scissors_html: MyText
-  paper_html: MyText

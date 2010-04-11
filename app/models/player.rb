@@ -2,6 +2,10 @@
 
 class Player < ActiveRecord::Base
 
+  def self.authenticate(login, password)
+    return Player.find_by_login_and_password login, password
+  end
+
   def self.logged_in_players(myID)
     # Return all the other logged-in players.
 
@@ -10,9 +14,7 @@ class Player < ActiveRecord::Base
   end
 
   def invite(invited)
-    g = Game.new(:inviter=>self, :invited=>invited)
-    g.save
-    return g
+    return Game.send_invite(self, invited)
   end
 
   def received_invites
@@ -24,23 +26,77 @@ class Player < ActiveRecord::Base
   end
 
   def make_move(g, move)
-
-    if g.inviter == self
-      g.inviter_move = move
-      return g
-    end
-
-    if g.invited == self
-      g.invited_move = move
-      return g
-    end
-
+    g.make_move(self, move)
   end
 
   def accept_invite(g)
+    g.accept_invite
+  end
 
-    g.accepted = true
-    g.save
+  def games_finished
+
+    return Game.all(
+      :conditions=>[
+        "(inviter_id = ? or invited_id = ?) and status = ?",
+        id, id, 'finished'])
+
+  end
+
+  def number_of_games
+    return Game.count(:conditions=>[
+      "(inviter_id = ? or invited_id = ?) and status = ?",
+      id, id, 'finished'])
+  end
+
+  def games_won
+
+    return Game.all(
+      :conditions=>[
+        "(inviter_id = ? or invited_id = ?) and status = ? and winner_id = ?",
+        id, id, 'finished', id])
+
+  end
+
+  def number_of_wins
+
+    return Game.count(
+      :conditions=>[
+        "(inviter_id = ? or invited_id = ?) and status = ? and winner_id = ?",
+        id, id, 'finished', id])
+
+  end
+
+  def number_of_losses
+
+    return Game.count(
+      :conditions=>[
+        "(inviter_id = ? or invited_id = ?) and status = ? and winner_id != ?",
+        id, id, 'finished', id])
+
+  end
+
+  def number_of_ties
+
+    return Game.count(
+      :conditions=>[
+        "(inviter_id = ? or invited_id = ?) and status = ?",
+        id, id, 'tied'])
+  end
+
+  def my_record
+    return "#{self.number_of_wins}-#{self.number_of_losses}-#{self.number_of_ties}"
+
+  end
+
+  def self.leaderboard
+
+    return Player.all.sort do |p1, p2|
+      if p1.number_of_wins != p2.number_of_wins
+        p1.number_of_wins <=> p2.number_of_wins
+      else
+        p1.number_of_games <=> p2.number_of_games
+      end
+    end .reverse
 
   end
 
