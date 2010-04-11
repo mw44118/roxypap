@@ -1,0 +1,25 @@
+<table>
+
+    <thead>
+        <tr>
+            <th>Login</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Ties</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    <% for p in @lb %>
+        <tr>
+            <td><%= p.login %></td>
+            <td><%= p.number_of_wins %></td>
+            <td><%= p.number_of_losses %></td>
+            <td><%= p.number_of_ties %></td>
+        </tr>
+    <% end %>
+
+    </tbody>
+
+</table>

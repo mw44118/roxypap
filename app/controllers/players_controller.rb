@@ -2,7 +2,7 @@
 
 class PlayersController < ApplicationController
 
-  before_filter :require_authentication
+  before_filter :require_authentication, :except => [:leaderboard]
 
   def others
 
@@ -15,6 +15,11 @@ class PlayersController < ApplicationController
         session[:player_id]]
     ).map do |inv| inv.to_player_id end
 
+  end
+
+  def leaderboard
+    @pagetitle = "LeaderBoard"
+    @lb = Player.leaderboard
   end
 
 end
