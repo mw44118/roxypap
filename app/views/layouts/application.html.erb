@@ -12,19 +12,7 @@
 
 <body>
 
-    <ul>
-
-        <li><a href="/players/leaderboard">Leader board</a></li>
-
-        <% if session[:player_id] %>
-        <li><a href="/players/others">Other players</a></li>
-        <li><a href="/invites/received">Invites</a></li>
-        <li><a href="/logout">Log out</a></li>
-        <% else %>
-        <li><a href="/login">Log in</a></li>
-        <% end %>
-
-    </ul>
+    <%= render :partial => "partials/globalnav" %>
 
     <p style="color: green"><%= flash[:notice] %></p>
 

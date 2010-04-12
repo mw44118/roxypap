@@ -17,12 +17,13 @@ class MattController < ApplicationController
       else
           flash[:notice] = "Hi #{p.login} -- welcome!"
           p.logged_in = DateTime.now
-          session[:player_id] = p.id
-
           p.save # Apparently, this is pretty important :)
 
+          session[:player_id] = p.id
+
           if session[:redirect_to].nil?
-              redirect_to :controller => 'players', :action => 'others'
+
+            redirect_to :controller => 'players', :action => 'others'
 
           else
               redirect_to session[:redirect_to]

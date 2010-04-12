@@ -5890,3 +5890,237 @@ Rendering players/leaderboard
   [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
   [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
 Completed in 33ms (View: 7, DB: 3) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-11 20:19:06) [GET]
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (10.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Completed in 47ms (View: 9, DB: 13) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-11 20:30:38) [GET]
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (1.4ms)
+Completed in 45ms (View: 22, DB: 3) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-11 20:30:39) [GET]
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.5ms)
+Completed in 31ms (View: 8, DB: 3) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-11 20:30:41) [GET]
+session[:player_id] is 1
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 1) [0m
+  [4;35;1mInvite Load (0.3ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.1ms)
+Completed in 21ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-11 20:30:42) [GET]
+session[:player_id] is 1
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 1) [0m
+  [4;35;1mInvite Load (0.2ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.1ms)
+Completed in 22ms (View: 6, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-11 20:30:43) [GET]
+session[:player_id] is 1
+  [4;36;1mPlayer Load (0.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 1) [0m
+  [4;35;1mInvite Load (0.2ms)[0m   [0mSELECT * FROM "invites" WHERE (from_player_id = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.1ms)
+Completed in 22ms (View: 7, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-11 20:30:44) [GET]
+Rendering template within layouts/application
+Rendering matt/logout
+Rendered partials/_globalnav (0.1ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-11 20:30:45) [GET]
+  [4;36;1mInvite Load (0.7ms)[0m   [0;1mSELECT * FROM "invites" WHERE (to_player_id = 1) [0m
+Rendering template within layouts/application
+Rendering invites/received
+Rendered partials/_globalnav (0.1ms)
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/invites/received]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-11 20:30:46) [GET]
+session[:player_id] is 1
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 1) [0m
+  [4;36;1mInvite Load (0.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.2ms)
+Completed in 20ms (View: 5, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-11 20:30:47) [GET]
+Rendering template within layouts/application
+Rendering matt/logout
+Rendered partials/_globalnav (0.2ms)
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-11 20:30:47) [GET]
+session[:player_id] is 1
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 1) [0m
+  [4;36;1mInvite Load (0.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.1ms)
+Completed in 20ms (View: 6, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-11 20:30:48) [GET]
+session[:player_id] is 1
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 1) [0m
+  [4;36;1mInvite Load (0.2ms)[0m   [0;1mSELECT * FROM "invites" WHERE (from_player_id = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.1ms)
+Completed in 22ms (View: 6, DB: 1) | 200 OK [http://localhost/players/others]
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-11 20:30:48) [GET]
+Rendering template within layouts/application
+Rendering matt/logout
+Rendered partials/_globalnav (0.1ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing MattController#logout (for 127.0.0.1 at 2010-04-11 20:30:50) [POST]
+  Parameters: {"authenticity_token"=>"DXDQNj2XcZUaTT44ezMkEKD1e2TSfEDTh9dxL9Sq3Fw="}
+Redirected to http://localhost:3000/matt/login
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-11 20:30:50) [GET]
+GET
+Rendering template within layouts/application
+Rendering matt/login
+Rendered partials/_globalnav (0.1ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/matt/login]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-11 20:30:51) [GET]
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.5ms)
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-11 20:30:52) [GET]
+GET
+Rendering template within layouts/application
+Rendering matt/login
+Rendered partials/_globalnav (0.1ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-11 20:30:53) [GET]
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.6ms)
+Completed in 31ms (View: 8, DB: 3) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-11 20:30:53) [GET]
+GET
+Rendering template within layouts/application
+Rendering matt/login
+Rendered partials/_globalnav (0.2ms)
+Completed in 60ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-11 20:30:54) [GET]
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.5ms)
+Completed in 33ms (View: 8, DB: 3) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-11 20:30:55) [GET]
+GET
+Rendering template within layouts/application
+Rendering matt/login
+Rendered partials/_globalnav (0.2ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
