@@ -11,6 +11,9 @@
 
 ActiveRecord::Schema.define(:version => 20100411191324) do
 
+# Could not dump table "foo" because of following StandardError
+#   Unknown type 'bool' for column 'a'
+
   create_table "games", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"

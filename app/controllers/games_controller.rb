@@ -1,3 +1,5 @@
+# vim: set tabstop=2 :
+
 class GamesController < ApplicationController
 
   before_filter :require_authentication
@@ -5,14 +7,9 @@ class GamesController < ApplicationController
   def play
 
     @g = Game.find(params[:id])
+    @pagetitle = "Game #{@g.id} #{@g.status}"
     @me = Player.find(session[:player_id])
-    @pagetitle = "Game #{@g.id}"
-
     @my_opponent = @g.my_opponent @me
-
-    @my_move = @g.my_move @me
-
-    @opponent_move = @g.my_move @my_opponent
 
   end
 
@@ -21,11 +18,10 @@ class GamesController < ApplicationController
     if request.post?
 
       @g = Game.find(params[:game_id])
-      @m = @g.my_move(session[:player_id])
-      @m.choice = params[:choice]
-      @m.save
+      @me = Player.find(session[:player_id])
+      @me.make_move(@g, params[:choice])
 
-      flash[:notice] = "Recorded your move (#{@m.choice})."
+      flash[:notice] = "Recorded your move (#{params[:choice]})."
 
     end
 

@@ -1,8 +1,10 @@
-<h1><%= @pagetitle %></h1>
-
 <h2><%= @me.login %> versus <%= @my_opponent.login %></h2>
 
-<% if @my_move.choice.nil? %>
+<% if @g.my_move(@me) %>
+
+<p>You picked <%= @g.my_move(@me) %>.</p>
+
+<% else %>
 
 <form action="/games/move" method="post">
 
@@ -10,27 +12,23 @@
 
     <input type="hidden" name="game_id" value="<%= @g.id %>" />
 
-    <% for choice in %w{rock scissors paper} %>
-
-    <label>
-        <input type="radio" name="choice" value="<%= choice %>" />
-        <span><%= choice.titlecase %></span>
-    </label>
-
+    <% for choice in ['rock', 'scissors', 'paper'] %>
+        <label>
+            <input type="radio" name="choice" value="<%= choice %>" />
+            <span><%= choice.titlecase %></span>
+        </label>
     <% end %>
 
-
-    <input type="submit" value="Make your choice" />
+    <input type="submit" value="Make your move" />
 
 </form>
 
-<% else %>
-
-<h2>You chose <%= @my_move.choice %>.</h2>
-
-<% if @g.winner %>
-<h2><%= @g.winner.login %> is the winner!</h2>
 <% end %>
 
-
+<% if @g.winner == @me %>
+<p>You win!</p>
+<% elsif @g.winner %>
+<p><%= @g.winner.login %> <strong>wins</strong>!</p>
+<% elsif @g.tied %>
+<strong>tied</strong>
 <% end %>

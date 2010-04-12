@@ -5243,3 +5243,199 @@ Completed in 1ms (DB: 0) | 302 Found [http://test.host/players/new]
   [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
   [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished') [0m
   [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished') [0m
+  [4;36;1mPlayer Create (1.6ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 21:45:39', NULL, '2010-04-11 21:45:39', 'matt', '1234')[0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+  [4;36;1mPlayer Create (0.2ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 21:45:39', NULL, '2010-04-11 21:45:39', 'lindsey', '5678')[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 21:45:39', NULL, '2010-04-11 21:45:39', 'charlie', '9012')[0m
+  [4;36;1mPlayer Create (0.2ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 21:45:39', NULL, '2010-04-11 21:45:39', 'oliver', '9012')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "players" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "players" [0m
+  [4;35;1mGame Create (0.3ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(2, '2010-04-11 21:45:39', '2010-04-11 21:45:39', NULL, 1, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished') [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished') [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished') [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.1ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 4 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.1ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 4 and accepted = 'f') [0m
+  [4;36;1mGame Update (0.2ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 21:45:39', "accepted" = 't', "status" = 'invitation accepted' WHERE "id" = 1[0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.1ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;35;1mGame Update (0.1ms)[0m   [0mUPDATE "games" SET "updated_at" = '2010-04-11 21:45:39', "inviter_move" = 'rock', "status" = 'in progress' WHERE "id" = 1[0m
+  [4;36;1mGame Update (0.1ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 21:45:39', "invited_move" = 'paper', "status" = 'finished', "winner_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished') [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished') [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+  [4;36;1mGame Load (0.1ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished') [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mPlayer Load (0.8ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished') [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished' and winner_id = 4) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished') [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "players" [0m
+  [4;35;1mGame Create (0.2ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(2, '2010-04-11 21:45:39', '2010-04-11 21:45:39', NULL, 3, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Create (0.2ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(2, '2010-04-11 21:45:39', '2010-04-11 21:45:39', NULL, 1, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+  [4;36;1mGame Update (0.1ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 21:45:39', "accepted" = 't', "status" = 'invitation accepted' WHERE "id" = 3[0m
+  [4;35;1mGame Update (0.1ms)[0m   [0mUPDATE "games" SET "updated_at" = '2010-04-11 21:45:39', "inviter_move" = 'scissors', "status" = 'in progress' WHERE "id" = 3[0m
+  [4;36;1mGame Update (0.1ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 21:45:39', "invited_move" = 'scissors', "status" = 'tied' WHERE "id" = 3[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mGame Create (0.2ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(1, '2010-04-11 21:45:39', '2010-04-11 21:45:39', NULL, 3, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+  [4;36;1mGame Update (0.1ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 21:45:39', "accepted" = 't', "status" = 'invitation accepted' WHERE "id" = 4[0m
+  [4;35;1mGame Update (0.1ms)[0m   [0mUPDATE "games" SET "updated_at" = '2010-04-11 21:45:39', "invited_move" = 'scissors', "status" = 'in progress' WHERE "id" = 4[0m
+  [4;36;1mGame Update (0.1ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 21:45:39', "inviter_move" = 'paper', "status" = 'finished', "winner_id" = 1 WHERE "id" = 4[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mPlayer Load (0.7ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished' and winner_id = 4) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished') [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished') [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished') [0m
+  [4;36;1mPlayer Create (0.3ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 21:45:39', NULL, '2010-04-11 21:45:39', 'matt', '1234')[0m
+  [4;35;1mPlayer Create (0.1ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 21:45:39', NULL, '2010-04-11 21:45:39', 'lindsey', '5678')[0m
+  [4;36;1mGame Create (0.2ms)[0m   [0;1mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(2, '2010-04-11 21:45:39', '2010-04-11 21:45:39', NULL, 1, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+  [4;35;1mGame Update (0.2ms)[0m   [0mUPDATE "games" SET "updated_at" = '2010-04-11 21:45:39', "accepted" = 't', "status" = 'invitation accepted' WHERE "id" = 1[0m
+  [4;36;1mPlayer Create (0.4ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 23:19:31', NULL, '2010-04-11 23:19:31', 'matt', '1234')[0m
+  [4;35;1mPlayer Load (0.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+  [4;36;1mPlayer Create (0.2ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 23:19:31', NULL, '2010-04-11 23:19:31', 'lindsey', '5678')[0m
+  [4;35;1mPlayer Create (0.2ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 23:19:31', NULL, '2010-04-11 23:19:31', 'charlie', '9012')[0m
+  [4;36;1mPlayer Create (0.1ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 23:19:32', NULL, '2010-04-11 23:19:32', 'oliver', '9012')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "players" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "players" [0m
+  [4;35;1mGame Create (0.3ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(2, '2010-04-11 23:19:32', '2010-04-11 23:19:32', NULL, 1, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished') [0m
+  [4;35;1mGame Load (0.1ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished') [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished') [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.1ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 4 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 4 and accepted = 'f') [0m
+  [4;36;1mGame Update (0.2ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 23:19:32', "accepted" = 't', "status" = 'invitation accepted' WHERE "id" = 1[0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;35;1mGame Update (0.2ms)[0m   [0mUPDATE "games" SET "updated_at" = '2010-04-11 23:19:32', "inviter_move" = 'rock', "status" = 'in progress' WHERE "id" = 1[0m
+  [4;36;1mGame Update (0.1ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 23:19:32', "invited_move" = 'paper', "status" = 'finished', "winner_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished') [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished') [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished') [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mGame Load (0.2ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mGame Load (0.1ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mPlayer Load (0.7ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished') [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished' and winner_id = 4) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished') [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "players" [0m
+  [4;35;1mGame Create (0.2ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(2, '2010-04-11 23:19:32', '2010-04-11 23:19:32', NULL, 3, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.2ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 1 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Create (0.2ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(2, '2010-04-11 23:19:32', '2010-04-11 23:19:32', NULL, 1, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+  [4;36;1mGame Update (0.2ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 23:19:32', "accepted" = 't', "status" = 'invitation accepted' WHERE "id" = 3[0m
+  [4;35;1mGame Update (0.1ms)[0m   [0mUPDATE "games" SET "updated_at" = '2010-04-11 23:19:32', "inviter_move" = 'scissors', "status" = 'in progress' WHERE "id" = 3[0m
+  [4;36;1mGame Update (0.1ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 23:19:32', "invited_move" = 'scissors', "status" = 'tied' WHERE "id" = 3[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mGame Create (0.2ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(1, '2010-04-11 23:19:32', '2010-04-11 23:19:32', NULL, 3, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+  [4;36;1mGame Update (0.1ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 23:19:32', "accepted" = 't', "status" = 'invitation accepted' WHERE "id" = 4[0m
+  [4;35;1mGame Update (0.1ms)[0m   [0mUPDATE "games" SET "updated_at" = '2010-04-11 23:19:32', "invited_move" = 'scissors', "status" = 'in progress' WHERE "id" = 4[0m
+  [4;36;1mGame Update (0.1ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-11 23:19:32', "inviter_move" = 'paper', "status" = 'finished', "winner_id" = 1 WHERE "id" = 4[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mPlayer Load (0.7ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished' and winner_id = 4) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 4 or invited_id = 4) and status = 'finished') [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished') [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished') [0m
+  [4;36;1mPlayer Create (0.3ms)[0m   [0;1mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 23:19:32', NULL, '2010-04-11 23:19:32', 'matt', '1234')[0m
+  [4;35;1mPlayer Create (0.1ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-11 23:19:32', NULL, '2010-04-11 23:19:32', 'lindsey', '5678')[0m
+  [4;36;1mGame Create (0.2ms)[0m   [0;1mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(2, '2010-04-11 23:19:32', '2010-04-11 23:19:32', NULL, 1, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+  [4;35;1mGame Update (0.2ms)[0m   [0mUPDATE "games" SET "updated_at" = '2010-04-11 23:19:32', "accepted" = 't', "status" = 'invitation accepted' WHERE "id" = 1[0m

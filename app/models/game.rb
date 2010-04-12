@@ -9,6 +9,18 @@ class Game < ActiveRecord::Base
 
   belongs_to :winner, :class_name => "Player"
 
+  def my_move(me)
+
+    if me == inviter
+      return inviter_move
+    end
+
+    if me == invited
+      return invited_move
+    end
+
+  end
+
   def make_move(mover, move)
 
     if mover == inviter
@@ -34,6 +46,10 @@ class Game < ActiveRecord::Base
 
     save
 
+  end
+
+  def tied
+    self.status == 'tied'
   end
 
   def figure_out_winner()
@@ -65,13 +81,13 @@ class Game < ActiveRecord::Base
 
   end
 
-  def my_opponent(myID)
+  def my_opponent(me)
 
-    if myID == inviter
+    if me == inviter
       return invited
     end
 
-    if myID == invited
+    if me == invited
       return inviter
     end
 

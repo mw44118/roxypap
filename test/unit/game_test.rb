@@ -1,6 +1,26 @@
+# vim: set tabstop=2 :
+
 require 'test_helper'
 
 class GameTest < ActiveSupport::TestCase
+
+  test "my_opponent" do
+
+    matt = Player.new :login=>"matt", :password=>"1234"
+    matt.save
+
+    lindsey = Player.new :login=>"lindsey", :password=>"5678"
+    lindsey.save
+
+    g = matt.invite(lindsey)
+    lindsey.accept_invite(g)
+
+    assert g.my_opponent(matt) == lindsey
+    assert g.my_opponent(lindsey) == matt
+
+  end
+
+
 
   test "Play a bunch of games" do
 
@@ -9,7 +29,7 @@ class GameTest < ActiveSupport::TestCase
 
     assert matt == Player.authenticate(matt.login, matt.password)
 
-    lindsey = Player.new:login=>"lindsey", :password=>"5678"
+    lindsey = Player.new :login=>"lindsey", :password=>"5678"
     lindsey.save
 
     charlie = Player.new :login => "charlie", :password => "9012"
