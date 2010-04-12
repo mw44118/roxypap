@@ -100,4 +100,11 @@ class Game < ActiveRecord::Base
 
   end
 
+  def self.my_unfinished_games(myID)
+    Game.all(:conditions=>[
+      "status not in ('tied', 'finished') and (inviter_id = ? or invited_id = ?)", myID, myID])
+
+  end
+
+
 end

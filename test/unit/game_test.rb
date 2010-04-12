@@ -20,8 +20,6 @@ class GameTest < ActiveSupport::TestCase
 
   end
 
-
-
   test "Play a bunch of games" do
 
     matt = Player.new(:login=>"matt", :password=>"1234")

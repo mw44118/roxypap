@@ -40,6 +40,8 @@ class MattController < ApplicationController
 
   def logout
 
+    @me = Player.find session[:player_id]
+
     if request.post?
 
       session[:player_id] = nil

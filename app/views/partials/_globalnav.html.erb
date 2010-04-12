@@ -5,7 +5,9 @@
     <% if session[:player_id] %>
     <li><a href="/players/others">Other players</a></li>
     <li><a href="/invites/received">Invites</a></li>
-    <li><a href="/logout">Log out</a></li>
+    <li><a href="/games/my_unfinished_games">My unfinished games</a></li>
+    <li><a href="/logout">Log out <%= @me.login %></a></li>
+
     <% else %>
     <li><a href="/login">Log in</a></li>
     <% end %>

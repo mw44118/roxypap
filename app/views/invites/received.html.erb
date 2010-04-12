@@ -1,15 +1,15 @@
 <h1><%= @pagetitle %></h1>
 
-<% if @invites_sent_to_me.count > 0 %>
+<% if @me.received_invites.count > 0 %>
 <ul>
-    <% for inv in @invites_sent_to_me %>
-    <li>you got an invite from <%= inv.from_player.login %>
+    <% for g in @me.received_invites %>
+    <li>you got an invite from <%= g.inviter.login %>
 
         <form action="/invites/accept" method="post">
 
             <%= token_tag %>
 
-            <input type="hidden" name="invID" value="<%= inv.id %>" />
+            <input type="hidden" name="gID" value="<%= g.id %>" />
 
             <input type="submit" value="Accept" />
         </form>

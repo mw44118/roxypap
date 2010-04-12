@@ -29,10 +29,9 @@ class GamesController < ApplicationController
 
   end
 
-  def open
-
-    # This belongs in SQL.
-    @open_games = Game.all.find_all
+  def my_unfinished_games
+    @me = Player.find(session[:player_id])
+    @pagetitle = "My unfinished games"
 
   end
 

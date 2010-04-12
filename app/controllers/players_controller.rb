@@ -10,14 +10,20 @@ class PlayersController < ApplicationController
 
     @players = Player.logged_in_players(session[:player_id])
 
-    @invited = Invite.all(
-      :conditions=>["from_player_id = ?",
-        session[:player_id]]
-    ).map do |inv| inv.to_player_id end
+    @me = Player.find session[:player_id]
+
+    @invited = @me.delivered_invites.map do |p| p.invited end
 
   end
 
   def leaderboard
+
+    if session[:player_id]
+      @me = Player.find session[:player_id]
+    else
+      @me = nil
+    end
+
     @pagetitle = "LeaderBoard"
     @lb = Player.leaderboard
   end
