@@ -1,5 +1,8 @@
 # vim: set tabstop=2 :
 
+class LoginAlreadyTaken < Exception
+end
+
 class Player < ActiveRecord::Base
 
   def self.authenticate(login, password)
@@ -7,7 +10,7 @@ class Player < ActiveRecord::Base
   end
 
   def self.logged_in_players(myID)
-    # Return all the other logged-in players.
+    # Return the other logged-in players.
 
     return Player.all(:conditions=>
       ["logged_in is not null and id != ?", myID])
@@ -22,7 +25,17 @@ class Player < ActiveRecord::Base
   end
 
   def delivered_invites
-    return Game.all(:conditions=>["inviter_id = ? and accepted = ?", id, false])
+    return Game.all(
+      :conditions=>["inviter_id = ? and accepted = ?", id, false])
+  end
+
+  def my_unfinished_games
+
+    Game.all(
+      :conditions=>[
+        "(inviter_id = ? or invited_id = ?) and status in (?, ?)",
+        self.id, self.id, 'invitation accepted', 'in progress'])
+
   end
 
   def make_move(g, move)
@@ -97,6 +110,17 @@ class Player < ActiveRecord::Base
         p1.number_of_games <=> p2.number_of_games
       end
     end .reverse
+
+  end
+
+  def self.register(login, password)
+
+    if not Player.find_by_login(login).nil?
+      raise LoginAlreadyTaken, login
+    end
+
+    p = Player.new(:login=>login, :password=>password)
+    p.save
 
   end
 

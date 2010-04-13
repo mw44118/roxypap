@@ -1,0 +1,19 @@
+<h1><%= @pagetitle %></h1>
+
+<form action="/players/register" method="post">
+
+    <%= token_tag %>
+
+    <label>
+        <input type="text" name="login" />
+        <span>Login</span>
+    </label>
+
+    <label>
+        <input type="text" name="password" />
+        <span>Password</span>
+    </label>
+
+    <input type="submit" value="Register" />
+
+</form>

@@ -46,7 +46,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 
-  map.connect '/login', :controller => 'matt', :action => 'login'
-  map.connect '/logout', :controller => 'matt', :action => 'logout'
+  map.connect '/', :controller => 'players', :action => 'login'
+  map.connect '/login', :controller => 'players', :action => 'login'
+  map.connect '/logout', :controller => 'players', :action => 'logout'
 
 end

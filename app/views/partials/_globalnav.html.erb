@@ -3,13 +3,29 @@
     <li><a href="/players/leaderboard">Leader board</a></li>
 
     <% if session[:player_id] %>
-    <li><a href="/players/others">Other players</a></li>
-    <li><a href="/invites/received">Invites</a></li>
-    <li><a href="/games/my_unfinished_games">My unfinished games</a></li>
+    <li><a href="/players/others">Other logged-in players</a></li>
+
+    <%if @me.received_invites.length > 0 %>
+    <li>
+        <a href="/invites/received">Invites</a>
+
+        <span><%= @me.received_invites.length %> total</span>
+    </li>
+    <% end %>
+
+    <% if @me.my_unfinished_games.length > 0 %>
+    <li><a href="/games/my_unfinished_games">My unfinished games</a>
+
+        <span><%= @me.my_unfinished_games.length %> total</span>
+
+    </li>
+    <% end %>
+
     <li><a href="/logout">Log out <%= @me.login %></a></li>
 
     <% else %>
-    <li><a href="/login">Log in</a></li>
+    <li><a href="/players/register">Register</a></li>
+    <li><a href="/players/login">Log in</a></li>
     <% end %>
 
 </ul>

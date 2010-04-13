@@ -1,5 +1,5 @@
 <ul>
-<% for g in Game.my_unfinished_games(@me.id) %>
+<% for g in @me.my_unfinished_games %>
 <li><a href="/games/play/<%= g.id %>">versus <%= g.my_opponent(@me).login %> (<%= g.status %>)</a></li>
 <% end %>
 </ul>

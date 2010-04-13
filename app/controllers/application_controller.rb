@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
     if not session[:player_id]
       flash[:notice] = "Please log in"
-      redirect_to :controller => 'matt', :action => 'login'
+      redirect_to :controller => 'players', :action => 'login'
     end
   end
 

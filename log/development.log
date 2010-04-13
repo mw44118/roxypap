@@ -8097,3 +8097,2248 @@ Rendering invites/received
   [4;36;1mGame Load (0.3ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
 Rendered partials/_globalnav (1.5ms)
 Completed in 22ms (View: 11, DB: 1) | 200 OK [http://localhost/invites/received]
+  [4;36;1mSQL (2.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (42.4ms)[0m   [0;1mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "theme_id" integer, "winner_id" integer, "inviter_id" integer, "invited_id" integer, "inviter_move" text, "invited_move" text, "accepted" boolean DEFAULT 'f', "status" text) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (20.7ms)[0m   [0;1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "from_player_id" integer, "to_player_id" integer) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (11.6ms)[0m   [0;1mCREATE TABLE "moves" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "choice" text, "game_id" integer, "player_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" text, "password" text, "created_at" datetime, "updated_at" datetime, "logged_in" datetime) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (13.6ms)[0m   [0;1mCREATE TABLE "themes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "rock_html" text, "scissors_html" text, "paper_html" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411191324')[0m
+  [4;35;1mSQL (4.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408183111')[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031758')[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408201232')[0m
+  [4;36;1mSQL (37.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411183310')[0m
+  [4;35;1mSQL (10.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404023854')[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050909')[0m
+  [4;35;1mSQL (4.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100403225834')[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404032802')[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100409184558')[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031858')[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404051102')[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050801')[0m
+  [4;35;1mSQL (5.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100406174408')[0m
+  [4;36;1mSQL (12.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100409193824')[0m
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-13 15:20:52) [GET]
+GET
+Rendering template within layouts/application
+Rendering matt/login
+Rendered partials/_globalnav (2.6ms)
+Completed in 248ms (View: 241, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-13 15:21:19) [GET]
+GET
+Rendering template within layouts/application
+Rendering matt/login
+Rendered partials/_globalnav (2.6ms)
+Completed in 204ms (View: 196, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-13 15:21:21) [GET]
+GET
+Rendering template within layouts/application
+Rendering matt/login
+Rendered partials/_globalnav (0.3ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-13 15:21:27) [GET]
+GET
+Rendering template within layouts/application
+Rendering matt/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 41ms (View: 33, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:24:26) [GET]
+GET
+
+ActionView::MissingTemplate (Missing template players/login.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:24:43) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (2.8ms)
+Completed in 106ms (View: 98, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:24:44) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:24:46) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.3ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:24:52) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>"1234"}
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+  [4;35;1mPlayer Update (7.7ms)[0m   [0mUPDATE "players" SET "updated_at" = '2010-04-13 19:24:52', "logged_in" = '2010-04-13 19:24:52' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/players/others
+Completed in 388ms (DB: 9) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:24:52) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (1.9ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.4ms)
+Completed in 72ms (View: 24, DB: 3) | 200 OK [http://localhost/players/others]
+
+
+Processing GamesController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 15:24:58) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/my_unfinished_games
+  [4;36;1mGame Load (0.8ms)[0m   [0;1mSELECT * FROM "games" WHERE (status not in ('tied', 'finished') and (inviter_id = 2 or invited_id = 2)) [0m
+Rendered partials/_globalnav (3.5ms)
+Completed in 81ms (View: 53, DB: 2) | 200 OK [http://localhost/games/my_unfinished_games]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 15:25:04) [GET]
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;36;1mGame Load (3.2ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+Rendered partials/_globalnav (3.5ms)
+Completed in 99ms (View: 66, DB: 4) | 200 OK [http://localhost/invites/received]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:25:06) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (1.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.4ms)
+Completed in 54ms (View: 9, DB: 3) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 15:25:09) [GET]
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mPlayer Load (1.2ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (7.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.5ms)
+Completed in 112ms (View: 33, DB: 14) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 15:25:10) [GET]
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.4ms)
+Completed in 82ms (View: 19, DB: 7) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 15:25:11) [GET]
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mPlayer Load (1.2ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.4ms)
+Completed in 77ms (View: 18, DB: 6) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:25:12) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (2.0ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;35;1mPlayer Load (1.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.4ms)
+Completed in 57ms (View: 9, DB: 4) | 200 OK [http://localhost/players/others]
+  [4;36;1mGame Load (1.7ms)[0m   [0;1mSELECT * FROM "games" WHERE (status in ('in progress', 'invitation accepted')) [0m
+  [4;35;1mGame Load (2.0ms)[0m   [0mSELECT * FROM "games" WHERE (status in ('tied', 'finished')) [0m
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:32:34) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+
+ActionView::TemplateError (undefined method `my_unfinished_games' for nil:NilClass) on line #9 of app/views/partials/_globalnav.html.erb:
+6:     <li><a href="/players/others">Other logged-in players</a></li>
+7:     <li><a href="/invites/received">Invites</a></li>
+8: 
+9:     <% if @me.my_unfinished_games.length %>
+10:     <li><a href="/games/my_unfinished_games">My unfinished games</a></li>
+11:     <% end %>
+12: 
+
+    app/views/partials/_globalnav.html.erb:9
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (306.3ms)
+Rendered rescues/_request_and_response (4.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:34:21) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+
+ActionView::TemplateError (undefined method `my_unfinished_games' for nil:NilClass) on line #9 of app/views/partials/_globalnav.html.erb:
+6:     <li><a href="/players/others">Other logged-in players</a></li>
+7:     <li><a href="/invites/received">Invites</a></li>
+8: 
+9:     <% if session[:player_id] and @me.my_unfinished_games.length %>
+10:     <li><a href="/games/my_unfinished_games">My unfinished games</a></li>
+11:     <% end %>
+12: 
+
+    app/views/partials/_globalnav.html.erb:9
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (176.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:34:22) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+
+ActionView::TemplateError (undefined method `my_unfinished_games' for nil:NilClass) on line #9 of app/views/partials/_globalnav.html.erb:
+6:     <li><a href="/players/others">Other logged-in players</a></li>
+7:     <li><a href="/invites/received">Invites</a></li>
+8: 
+9:     <% if session[:player_id] and @me.my_unfinished_games.length %>
+10:     <li><a href="/games/my_unfinished_games">My unfinished games</a></li>
+11:     <% end %>
+12: 
+
+    app/views/partials/_globalnav.html.erb:9
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (206.9ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:34:47) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+
+ActionView::TemplateError (undefined method `login' for nil:NilClass) on line #11 of app/views/partials/_globalnav.html.erb:
+8: 
+9:     <li><a href="/games/my_unfinished_games">My unfinished games</a></li>
+10: 
+11:     <li><a href="/logout">Log out <%= @me.login %></a></li>
+12: 
+13:     <% else %>
+14:     <li><a href="/players/register">Register</a></li>
+
+    app/views/partials/_globalnav.html.erb:11
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (328.6ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:34:49) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+
+ActionView::TemplateError (undefined method `login' for nil:NilClass) on line #11 of app/views/partials/_globalnav.html.erb:
+8: 
+9:     <li><a href="/games/my_unfinished_games">My unfinished games</a></li>
+10: 
+11:     <li><a href="/logout">Log out <%= @me.login %></a></li>
+12: 
+13:     <% else %>
+14:     <li><a href="/players/register">Register</a></li>
+
+    app/views/partials/_globalnav.html.erb:11
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (183.3ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:35:32) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+
+ActionView::TemplateError (undefined method `login' for nil:NilClass) on line #11 of app/views/partials/_globalnav.html.erb:
+8: 
+9:     <li><a href="/games/my_unfinished_games">My unfinished games</a></li>
+10: 
+11:     <li><a href="/logout">Log out <%= @me.login %></a></li>
+12: 
+13:     <% else %>
+14:     <li><a href="/players/register">Register</a></li>
+
+    app/views/partials/_globalnav.html.erb:11
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (189.5ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:35:46) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (2.0ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.4ms)
+Completed in 54ms (View: 9, DB: 4) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:35:47) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (1.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.4ms)
+Completed in 53ms (View: 9, DB: 3) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 15:35:51) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (1.6ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering players/logout
+Rendered partials/_globalnav (3.8ms)
+Completed in 50ms (View: 23, DB: 2) | 200 OK [http://localhost/logout]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 15:35:54) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM="}
+session[:player_id] is 2
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Redirected to http://localhost:3000/players/login
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/logout]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:35:54) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:35:56) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 15:36:01) [GET]
+  [4;35;1mPlayer Load (2.4ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.4ms)
+Completed in 82ms (View: 20, DB: 7) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:36:03) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 22ms (View: 8, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:36:06) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.3ms)
+Completed in 16ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:36:11) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.3ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 15:36:18) [GET]
+session[:player_id] is 
+Redirected to http://localhost:3000/matt/login
+Filter chain halted as [:require_authentication] rendered_or_redirected.
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/players/register]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-13 15:36:19) [GET]
+
+ActionController::UnknownAction (No action responded to login. Actions: ):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 15:36:27) [GET]
+  [4;36;1mPlayer Load (25.8ms)[0m   [0;1mSELECT * FROM "players" [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.4ms)
+Completed in 100ms (View: 18, DB: 30) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 15:36:36) [GET]
+  [4;35;1mPlayer Load (2.6ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.4ms)
+Completed in 79ms (View: 18, DB: 9) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 15:36:46) [GET]
+  [4;36;1mPlayer Load (4.8ms)[0m   [0;1mSELECT * FROM "players" [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.4ms)
+Completed in 85ms (View: 18, DB: 9) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:36:48) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.3ms)
+Completed in 16ms (View: 7, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:36:54) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>"1234"}
+  [4;35;1mPlayer Load (1.4ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+  [4;36;1mPlayer Update (0.7ms)[0m   [0;1mUPDATE "players" SET "updated_at" = '2010-04-13 19:36:54', "logged_in" = '2010-04-13 19:36:54' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/players/others
+Completed in 50ms (DB: 2) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:36:54) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (1.9ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mPlayer Load (1.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.4ms)
+Completed in 177ms (View: 9, DB: 4) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 15:36:59) [GET]
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mPlayer Load (1.2ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.4ms)
+Completed in 82ms (View: 18, DB: 6) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 15:37:02) [GET]
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mPlayer Load (1.2ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.4ms)
+Completed in 91ms (View: 19, DB: 7) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:37:05) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (1.8ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+Rendered partials/_globalnav (0.4ms)
+Completed in 58ms (View: 11, DB: 3) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 15:37:07) [GET]
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+Rendered partials/_globalnav (3.5ms)
+Completed in 54ms (View: 26, DB: 2) | 200 OK [http://localhost/invites/received]
+
+
+Processing GamesController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 15:37:09) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/my_unfinished_games
+  [4;36;1mGame Load (0.8ms)[0m   [0;1mSELECT * FROM "games" WHERE (status not in ('tied', 'finished') and (inviter_id = 2 or invited_id = 2)) [0m
+Rendered partials/_globalnav (3.5ms)
+Completed in 55ms (View: 26, DB: 2) | 200 OK [http://localhost/games/my_unfinished_games]
+
+
+Processing GamesController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 15:37:35) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/my_unfinished_games
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE (status not in ('tied', 'finished') and (inviter_id = 2 or invited_id = 2)) [0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (8.7ms)
+Completed in 73ms (View: 45, DB: 2) | 200 OK [http://localhost/games/my_unfinished_games]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 15:37:39) [GET]
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (5.9ms)
+Completed in 75ms (View: 27, DB: 2) | 200 OK [http://localhost/invites/received]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 15:37:55) [GET]
+  [4;36;1mPlayer Load (6.2ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.8ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (13.2ms)
+Completed in 288ms (View: 98, DB: 8) | 200 OK [http://localhost/invites/received]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:37:59) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (2.8ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (2.9ms)
+Completed in 83ms (View: 36, DB: 5) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 15:38:17) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering players/logout
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (25.2ms)
+Completed in 74ms (View: 44, DB: 2) | 200 OK [http://localhost/logout]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 15:38:23) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM="}
+session[:player_id] is 2
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Redirected to http://localhost:3000/players/login
+Completed in 37ms (DB: 1) | 302 Found [http://localhost/logout]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:38:23) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 30ms (View: 20, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:38:28) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 15:38:35) [GET]
+  [4;36;1mPlayer Load (2.2ms)[0m   [0;1mSELECT * FROM "players" [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+Rendered partials/_globalnav (0.3ms)
+Completed in 105ms (View: 33, DB: 6) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:38:41) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.9ms)
+Completed in 18ms (View: 9, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:38:45) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>"1234"}
+  [4;35;1mPlayer Load (1.3ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+  [4;36;1mPlayer Update (1.1ms)[0m   [0;1mUPDATE "players" SET "updated_at" = '2010-04-13 19:38:45', "logged_in" = '2010-04-13 19:38:45' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/players/others
+Completed in 275ms (DB: 2) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:38:46) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (2.0ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (2.7ms)
+Completed in 55ms (View: 11, DB: 4) | 200 OK [http://localhost/players/others]
+
+
+Processing GamesController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 15:39:00) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/my_unfinished_games
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE (status not in ('tied', 'finished') and (inviter_id = 2 or invited_id = 2)) [0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (6.4ms)
+Completed in 83ms (View: 54, DB: 2) | 200 OK [http://localhost/games/my_unfinished_games]
+
+
+Processing GamesController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 15:39:30) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/my_unfinished_games
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE (status not in ('tied', 'finished') and (inviter_id = 2 or invited_id = 2)) [0m
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (10.3ms)
+Completed in 73ms (View: 45, DB: 2) | 200 OK [http://localhost/games/my_unfinished_games]
+
+
+Processing GamesController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 15:39:39) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/my_unfinished_games
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE (status not in ('tied', 'finished') and (inviter_id = 2 or invited_id = 2)) [0m
+  [4;36;1mGame Load (1.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (9.5ms)
+Completed in 84ms (View: 43, DB: 3) | 200 OK [http://localhost/games/my_unfinished_games]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:39:42) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (2.0ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (2.7ms)
+Completed in 73ms (View: 10, DB: 4) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 15:39:44) [GET]
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (32.8ms)
+Completed in 178ms (View: 149, DB: 2) | 200 OK [http://localhost/invites/received]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:39:47) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (3.7ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (2.8ms)
+Completed in 61ms (View: 11, DB: 6) | 200 OK [http://localhost/players/others]
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+
+
+Processing ApplicationController#others (for 127.0.0.1 at 2010-04-13 15:58:08) [GET]
+
+SyntaxError (/home/matt/checkouts/roxypap/app/controllers/players_controller.rb:88: syntax error, unexpected ')', expecting ']'
+/home/matt/checkouts/roxypap/app/controllers/players_controller.rb:106: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (136.7ms)
+Rendered rescues/_request_and_response (4.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#others (for 127.0.0.1 at 2010-04-13 15:58:29) [GET]
+
+SyntaxError (/home/matt/checkouts/roxypap/app/controllers/players_controller.rb:106: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (109.1ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 15:58:55) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (1.9ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (3.1ms)
+Completed in 60ms (View: 11, DB: 4) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 15:59:48) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering players/logout
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (26.2ms)
+Completed in 68ms (View: 38, DB: 2) | 200 OK [http://localhost/logout]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 15:59:52) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM="}
+session[:player_id] is 2
+  [4;36;1mPlayer Load (1.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Redirected to http://localhost:3000/players/login
+Completed in 30ms (DB: 2) | 302 Found [http://localhost/logout]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 15:59:52) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.3ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 15:59:57) [GET]
+session[:player_id] is 
+Redirected to http://localhost:3000/matt/login
+Filter chain halted as [:require_authentication] rendered_or_redirected.
+Completed in 29ms (DB: 0) | 302 Found [http://localhost/players/register]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-13 15:59:57) [GET]
+
+ActionController::UnknownAction (No action responded to login. Actions: ):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:00:26) [GET]
+session[:player_id] is 
+Redirected to http://localhost:3000/matt/login
+Filter chain halted as [:require_authentication] rendered_or_redirected.
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/players/register]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-13 16:00:27) [GET]
+
+ActionController::UnknownAction (No action responded to login. Actions: ):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:00:56) [GET]
+session[:player_id] is 
+Redirected to http://localhost:3000/matt/login
+Filter chain halted as [:require_authentication] rendered_or_redirected.
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/players/register]
+
+
+Processing MattController#login (for 127.0.0.1 at 2010-04-13 16:00:56) [GET]
+
+ActionController::UnknownAction (No action responded to login. Actions: ):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:02:17) [GET]
+GET inside register
+Rendering template within layouts/application
+Rendering players/register
+Rendered partials/_globalnav (3.3ms)
+Completed in 201ms (View: 194, DB: 0) | 200 OK [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:02:23) [GET]
+GET inside register
+Rendering template within layouts/application
+Rendering players/register
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:02:30) [GET]
+GET inside register
+Rendering template within layouts/application
+Rendering players/register
+Rendered partials/_globalnav (0.3ms)
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:02:36) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>"123"}
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.3ms)
+
+ActionController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/players_controller.rb:99:in `register'
+
+Rendered rescues/_trace (125.9ms)
+Rendered rescues/_request_and_response (4.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:03:57) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>"123"}
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+Redirected to http://localhost:3000/players/register
+
+ActionController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/players_controller.rb:99:in `register'
+
+Rendered rescues/_trace (274.3ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:04:12) [GET]
+GET inside register
+Rendering template within layouts/application
+Rendering players/register
+Rendered partials/_globalnav (0.4ms)
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:04:20) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>"123"}
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+Redirected to http://localhost:3000/players/register
+
+ActionController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/players_controller.rb:99:in `register'
+
+Rendered rescues/_trace (124.8ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:09:20) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 25ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:09:23) [GET]
+GET inside register
+Rendering template within layouts/application
+Rendering players/register
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:09:33) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>"1234"}
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+Redirected to http://localhost:3000/players/register
+Completed in 31ms (DB: 1) | 302 Found [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:09:33) [GET]
+GET inside register
+Rendering template within layouts/application
+Rendering players/register
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:10:08) [GET]
+GET inside register
+Rendering template within layouts/application
+Rendering players/register
+Rendered partials/_globalnav (0.4ms)
+Completed in 30ms (View: 20, DB: 0) | 200 OK [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:10:15) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>""}
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+Redirected to http://localhost:3000/players/register
+Completed in 31ms (DB: 1) | 302 Found [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:10:16) [GET]
+GET inside register
+Rendering template within layouts/application
+Rendering players/register
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:10:23) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>"2345"}
+  [4;35;1mPlayer Load (10.3ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."login" = 'matt') LIMIT 1[0m
+Redirected to http://localhost:3000/players/register
+Completed in 59ms (DB: 10) | 302 Found [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:10:23) [GET]
+GET inside register
+Rendering template within layouts/application
+Rendering players/register
+Rendered partials/_globalnav (0.3ms)
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/players/register]
+
+
+Processing PlayersController#register (for 127.0.0.1 at 2010-04-13 16:10:34) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"charlie", "password"=>"1234"}
+  [4;36;1mPlayer Load (0.6ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."login" = 'charlie') LIMIT 1[0m
+  [4;35;1mPlayer Create (1.4ms)[0m   [0mINSERT INTO "players" ("created_at", "logged_in", "updated_at", "login", "password") VALUES('2010-04-13 20:10:34', NULL, '2010-04-13 20:10:34', 'charlie', '1234')[0m
+Redirected to http://localhost:3000/players/others
+Completed in 44ms (DB: 2) | 302 Found [http://localhost/players/register]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:10:34) [GET]
+session[:player_id] is 
+Redirected to http://localhost:3000/players/login
+Filter chain halted as [:require_authentication] rendered_or_redirected.
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/players/others]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:10:34) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:10:43) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"charlie", "password"=>"123"}
+  [4;36;1mPlayer Load (0.7ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '123' AND "players"."login" = 'charlie') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 34ms (View: 6, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:10:48) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"charlie", "password"=>"1234"}
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'charlie') LIMIT 1[0m
+  [4;36;1mPlayer Update (0.8ms)[0m   [0;1mUPDATE "players" SET "updated_at" = '2010-04-13 20:10:48', "logged_in" = '2010-04-13 20:10:48' WHERE "id" = 3[0m
+Redirected to http://localhost:3000/players/others
+Completed in 282ms (DB: 2) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:10:48) [GET]
+session[:player_id] is 3
+  [4;35;1mPlayer Load (2.2ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (2.6ms)
+Completed in 76ms (View: 27, DB: 4) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-13 16:10:55) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "to_player"=>"1"}
+  [4;35;1mPlayer Load (1.3ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;35;1mGame Create (0.8ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(1, '2010-04-13 20:10:56', '2010-04-13 20:10:56', NULL, 3, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+Redirected to http://localhost:3000/players/others
+Completed in 331ms (DB: 3) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:10:56) [GET]
+session[:player_id] is 3
+  [4;36;1mPlayer Load (2.9ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;35;1mPlayer Load (1.3ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mGame Load (1.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (2.8ms)
+Completed in 72ms (View: 11, DB: 7) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-13 16:10:59) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "to_player"=>"2"}
+  [4;35;1mPlayer Load (1.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Create (0.8ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(2, '2010-04-13 20:10:59', '2010-04-13 20:10:59', NULL, 3, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+Redirected to http://localhost:3000/players/others
+Completed in 80ms (DB: 4) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:10:59) [GET]
+session[:player_id] is 3
+  [4;36;1mPlayer Load (2.6ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mGame Load (2.3ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;35;1mPlayer Load (1.3ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (2.7ms)
+Completed in 70ms (View: 9, DB: 9) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:11:04) [GET]
+session[:player_id] is 3
+  [4;36;1mPlayer Load (2.2ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mGame Load (2.0ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (2.6ms)
+Completed in 80ms (View: 9, DB: 8) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 16:11:07) [GET]
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mPlayer Load (2.6ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished') [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id != 3) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'tied') [0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (128.6ms)
+Completed in 252ms (View: 165, DB: 14) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 16:11:13) [GET]
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (6.9ms)
+Completed in 82ms (View: 53, DB: 2) | 200 OK [http://localhost/invites/received]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 16:11:17) [GET]
+session[:player_id] is 3
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering players/logout
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (26.6ms)
+Completed in 74ms (View: 45, DB: 2) | 200 OK [http://localhost/logout]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 16:11:20) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM="}
+session[:player_id] is 3
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+Redirected to http://localhost:3000/players/login
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/logout]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:11:20) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:11:29) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>"1234"}
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+  [4;35;1mPlayer Update (0.6ms)[0m   [0mUPDATE "players" SET "updated_at" = '2010-04-13 20:11:29', "logged_in" = '2010-04-13 20:11:29' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/players/others
+Completed in 61ms (DB: 2) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:11:29) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (2.2ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (2.8ms)
+Completed in 57ms (View: 12, DB: 4) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 16:11:35) [GET]
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;35;1mGame Load (1.9ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mPlayer Load (1.6ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (2.8ms)
+Completed in 86ms (View: 44, DB: 5) | 200 OK [http://localhost/invites/received]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 16:12:23) [GET]
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;36;1mGame Load (2.3ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mPlayer Load (1.3ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+
+ActionView::TemplateError (undefined local variable or method `length' for #<ActionView::Base:0xb71b7b70>) on line #8 of app/views/partials/_globalnav.html.erb:
+5:     <% if session[:player_id] %>
+6:     <li><a href="/players/others">Other logged-in players</a></li>
+7: 
+8:     <%if @me.received_invites/length > 0 %>
+9:     <li><a href="/invites/received">Invites</a></li>
+10:     <% end %>
+11: 
+
+    app/views/partials/_globalnav.html.erb:8
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (179.9ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 16:12:25) [GET]
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;35;1mGame Load (1.4ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+
+ActionView::TemplateError (undefined local variable or method `length' for #<ActionView::Base:0xb731c2a4>) on line #8 of app/views/partials/_globalnav.html.erb:
+5:     <% if session[:player_id] %>
+6:     <li><a href="/players/others">Other logged-in players</a></li>
+7: 
+8:     <%if @me.received_invites/length > 0 %>
+9:     <li><a href="/invites/received">Invites</a></li>
+10:     <% end %>
+11: 
+
+    app/views/partials/_globalnav.html.erb:8
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (184.6ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 16:12:34) [GET]
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;36;1mGame Load (1.4ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (7.1ms)
+Completed in 94ms (View: 52, DB: 4) | 200 OK [http://localhost/invites/received]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 16:13:25) [GET]
+  [4;35;1mPlayer Load (104.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;36;1mGame Load (1.4ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (9.0ms)
+Completed in 223ms (View: 90, DB: 107) | 200 OK [http://localhost/invites/received]
+
+
+Processing InvitesController#accept (for 127.0.0.1 at 2010-04-13 16:13:29) [POST]
+  Parameters: {"gID"=>"15", "authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM="}
+  [4;36;1mPlayer Load (1.4ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (1.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 15) [0m
+  [4;36;1mGame Update (0.7ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-13 20:13:29', "accepted" = 't', "status" = 'invitation accepted' WHERE "id" = 15[0m
+Redirected to http://localhost:3000/games/play/15
+Completed in 77ms (DB: 4) | 302 Found [http://localhost/invites/accept]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-13 16:13:29) [GET]
+  Parameters: {"id"=>"15"}
+session[:player_id] is 2
+  [4;35;1mGame Load (1.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 15) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/play
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (1.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (7.1ms)
+Completed in 110ms (View: 44, DB: 5) | 200 OK [http://localhost/games/play/15]
+
+
+Processing GamesController#move (for 127.0.0.1 at 2010-04-13 16:13:36) [POST]
+  Parameters: {"choice"=>"rock", "authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "game_id"=>"15"}
+session[:player_id] is 2
+  [4;36;1mGame Load (13.0ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 15) [0m
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Update (0.7ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-13 20:13:36', "invited_move" = 'rock', "status" = 'in progress' WHERE "id" = 15[0m
+Redirected to http://localhost:3000/games/play/15
+Completed in 87ms (DB: 16) | 302 Found [http://localhost/games/move]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-13 16:13:36) [GET]
+  Parameters: {"id"=>"15"}
+session[:player_id] is 2
+  [4;35;1mGame Load (1.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 15) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/play
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (1.5ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (9.0ms)
+Completed in 82ms (View: 16, DB: 5) | 200 OK [http://localhost/games/play/15]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 16:13:43) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering players/logout
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (1.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (33.5ms)
+Completed in 190ms (View: 37, DB: 3) | 200 OK [http://localhost/logout]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 16:13:46) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM="}
+session[:player_id] is 2
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Redirected to http://localhost:3000/players/login
+Completed in 31ms (DB: 1) | 302 Found [http://localhost/logout]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:13:46) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:13:54) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"charlie", "password"=>"1234"}
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'charlie') LIMIT 1[0m
+  [4;36;1mPlayer Update (0.7ms)[0m   [0;1mUPDATE "players" SET "updated_at" = '2010-04-13 20:13:54', "logged_in" = '2010-04-13 20:13:54' WHERE "id" = 3[0m
+Redirected to http://localhost:3000/players/others
+Completed in 53ms (DB: 2) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:13:54) [GET]
+session[:player_id] is 3
+  [4;35;1mPlayer Load (2.6ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mGame Load (1.4ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (1.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (6.9ms)
+Completed in 71ms (View: 14, DB: 8) | 200 OK [http://localhost/players/others]
+
+
+Processing GamesController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 16:13:59) [GET]
+session[:player_id] is 3
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering games/my_unfinished_games
+  [4;35;1mGame Load (2.0ms)[0m   [0mSELECT * FROM "games" WHERE (status not in ('tied', 'finished') and (inviter_id = 3 or invited_id = 3)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Load (1.4ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (7.0ms)
+Completed in 120ms (View: 83, DB: 7) | 200 OK [http://localhost/games/my_unfinished_games]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-13 16:14:16) [GET]
+  Parameters: {"id"=>"15"}
+session[:player_id] is 3
+  [4;35;1mGame Load (1.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 15) [0m
+  [4;36;1mPlayer Load (1.2ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/play
+  [4;35;1mGame Load (1.2ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (1.5ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (8.2ms)
+Completed in 212ms (View: 17, DB: 6) | 200 OK [http://localhost/games/play/15]
+
+
+Processing GamesController#move (for 127.0.0.1 at 2010-04-13 16:14:27) [POST]
+  Parameters: {"choice"=>"rock", "authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "game_id"=>"15"}
+session[:player_id] is 3
+  [4;36;1mGame Load (7.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 15) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Update (0.8ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-13 20:14:28', "inviter_move" = 'rock', "status" = 'tied' WHERE "id" = 15[0m
+Redirected to http://localhost:3000/games/play/15
+Completed in 131ms (DB: 11) | 302 Found [http://localhost/games/move]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-13 16:14:28) [GET]
+  Parameters: {"id"=>"15"}
+session[:player_id] is 3
+  [4;35;1mGame Load (1.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 15) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/play
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (4.9ms)
+Completed in 73ms (View: 12, DB: 4) | 200 OK [http://localhost/games/play/15]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 16:14:33) [GET]
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mPlayer Load (1.6ms)[0m   [0;1mSELECT * FROM "players" [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished') [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id != 3) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'tied') [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (4.9ms)
+Completed in 126ms (View: 34, DB: 12) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:14:46) [GET]
+session[:player_id] is 3
+  [4;36;1mPlayer Load (2.6ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;35;1mPlayer Load (8.5ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mGame Load (1.4ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (4.6ms)
+Completed in 80ms (View: 12, DB: 15) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:14:47) [GET]
+session[:player_id] is 3
+  [4;36;1mPlayer Load (2.4ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mGame Load (1.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;35;1mPlayer Load (1.3ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (5.0ms)
+Completed in 203ms (View: 15, DB: 7) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 16:15:56) [GET]
+session[:player_id] is 3
+
+ActionController::UnknownAction (No action responded to my_unfinished_games. Actions: leaderboard, login, logout, others, and register):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GamesController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 16:16:07) [GET]
+session[:player_id] is 3
+  [4;36;1mPlayer Load (3.3ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering games/my_unfinished_games
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (7.2ms)
+Completed in 75ms (View: 44, DB: 4) | 200 OK [http://localhost/games/my_unfinished_games]
+
+
+Processing PlayersController#leaderboard (for 127.0.0.1 at 2010-04-13 16:16:11) [GET]
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mPlayer Load (1.9ms)[0m   [0mSELECT * FROM "players" [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished') [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished') [0m
+Rendering template within layouts/application
+Rendering players/leaderboard
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id = 1) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'finished' and winner_id != 1) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 1 or invited_id = 1) and status = 'tied') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id = 2) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'finished' and winner_id != 2) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status = 'tied') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id = 3) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'finished' and winner_id != 3) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status = 'tied') [0m
+  [4;35;1mGame Load (0.4ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (4.3ms)
+Completed in 128ms (View: 25, DB: 12) | 200 OK [http://localhost/players/leaderboard]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:16:13) [GET]
+session[:player_id] is 3
+  [4;35;1mPlayer Load (2.3ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mGame Load (1.4ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (4.7ms)
+Completed in 71ms (View: 13, DB: 7) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#invite (for 127.0.0.1 at 2010-04-13 16:16:18) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "to_player"=>"2"}
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Create (0.8ms)[0m   [0mINSERT INTO "games" ("invited_id", "created_at", "updated_at", "theme_id", "inviter_id", "winner_id", "inviter_move", "accepted", "status", "invited_move") VALUES(2, '2010-04-13 20:16:19', '2010-04-13 20:16:19', NULL, 3, NULL, NULL, 'f', 'invitation sent', NULL)[0m
+Redirected to http://localhost:3000/players/others
+Completed in 238ms (DB: 3) | 302 Found [http://localhost/invites/invite]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:16:19) [GET]
+session[:player_id] is 3
+  [4;36;1mPlayer Load (2.6ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mGame Load (2.1ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (5.4ms)
+Completed in 80ms (View: 12, DB: 9) | 200 OK [http://localhost/players/others]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 16:16:22) [GET]
+session[:player_id] is 3
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering players/logout
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (27.2ms)
+Completed in 63ms (View: 32, DB: 2) | 200 OK [http://localhost/logout]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 16:16:24) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM="}
+session[:player_id] is 3
+  [4;36;1mPlayer Load (2.3ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+Redirected to http://localhost:3000/players/login
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/logout]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:16:25) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:16:32) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"matt", "password"=>"1234"}
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'matt') LIMIT 1[0m
+  [4;36;1mPlayer Update (0.7ms)[0m   [0;1mUPDATE "players" SET "updated_at" = '2010-04-13 20:16:32', "logged_in" = '2010-04-13 20:16:32' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/players/others
+Completed in 71ms (DB: 2) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:16:32) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (2.3ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 2) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 2 and accepted = 'f') [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;36;1mGame Load (1.4ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (7.3ms)
+Completed in 64ms (View: 17, DB: 6) | 200 OK [http://localhost/players/others]
+
+
+Processing InvitesController#received (for 127.0.0.1 at 2010-04-13 16:16:43) [GET]
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering invites/received
+  [4;36;1mGame Load (1.4ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mGame Load (0.7ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (5.0ms)
+Completed in 72ms (View: 42, DB: 4) | 200 OK [http://localhost/invites/received]
+
+
+Processing InvitesController#accept (for 127.0.0.1 at 2010-04-13 16:16:48) [POST]
+  Parameters: {"gID"=>"16", "authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM="}
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (1.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 16) [0m
+  [4;36;1mGame Update (0.8ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-13 20:16:48', "accepted" = 't', "status" = 'invitation accepted' WHERE "id" = 16[0m
+Redirected to http://localhost:3000/games/play/16
+Completed in 71ms (DB: 3) | 302 Found [http://localhost/invites/accept]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-13 16:16:49) [GET]
+  Parameters: {"id"=>"16"}
+session[:player_id] is 2
+  [4;35;1mGame Load (1.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 16) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/play
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (1.4ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (6.9ms)
+Completed in 80ms (View: 15, DB: 5) | 200 OK [http://localhost/games/play/16]
+
+
+Processing GamesController#move (for 127.0.0.1 at 2010-04-13 16:16:54) [POST]
+  Parameters: {"choice"=>"rock", "authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "game_id"=>"16"}
+session[:player_id] is 2
+  [4;36;1mGame Load (1.2ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 16) [0m
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Update (0.7ms)[0m   [0;1mUPDATE "games" SET "updated_at" = '2010-04-13 20:16:54', "invited_move" = 'rock', "status" = 'in progress' WHERE "id" = 16[0m
+Redirected to http://localhost:3000/games/play/16
+Completed in 116ms (DB: 4) | 302 Found [http://localhost/games/move]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-13 16:16:54) [GET]
+  Parameters: {"id"=>"16"}
+session[:player_id] is 2
+  [4;35;1mGame Load (1.4ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 16) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/play
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;36;1mGame Load (1.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (8.5ms)
+Completed in 81ms (View: 14, DB: 6) | 200 OK [http://localhost/games/play/16]
+
+
+Processing GamesController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 16:16:57) [GET]
+session[:player_id] is 2
+  [4;36;1mPlayer Load (2.5ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/my_unfinished_games
+  [4;35;1mGame Load (1.6ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+  [4;36;1mPlayer Load (1.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (5.1ms)
+Completed in 83ms (View: 50, DB: 6) | 200 OK [http://localhost/games/my_unfinished_games]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 16:17:03) [GET]
+session[:player_id] is 2
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering players/logout
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 2 and accepted = 'f') [0m
+  [4;35;1mGame Load (3.8ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 2 or invited_id = 2) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (33.9ms)
+Completed in 75ms (View: 35, DB: 5) | 200 OK [http://localhost/logout]
+
+
+Processing PlayersController#logout (for 127.0.0.1 at 2010-04-13 16:17:11) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM="}
+session[:player_id] is 2
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Redirected to http://localhost:3000/players/login
+Completed in 61ms (DB: 1) | 302 Found [http://localhost/logout]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:17:11) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.4ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/players/login]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:17:17) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+Rendered partials/_globalnav (0.3ms)
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:17:27) [POST]
+  Parameters: {"authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "login"=>"charlie", "password"=>"1234"}
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."password" = '1234' AND "players"."login" = 'charlie') LIMIT 1[0m
+  [4;35;1mPlayer Update (0.6ms)[0m   [0mUPDATE "players" SET "updated_at" = '2010-04-13 20:17:27', "logged_in" = '2010-04-13 20:17:27' WHERE "id" = 3[0m
+Redirected to http://localhost:3000/players/others
+Completed in 48ms (DB: 2) | 302 Found [http://localhost/login]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:17:27) [GET]
+session[:player_id] is 3
+  [4;36;1mPlayer Load (2.2ms)[0m   [0;1mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;35;1mPlayer Load (0.9ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mGame Load (1.4ms)[0m   [0;1mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Load (1.4ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (7.4ms)
+Completed in 195ms (View: 15, DB: 8) | 200 OK [http://localhost/players/others]
+
+
+Processing GamesController#my_unfinished_games (for 127.0.0.1 at 2010-04-13 16:17:32) [GET]
+session[:player_id] is 3
+  [4;35;1mPlayer Load (1.1ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering games/my_unfinished_games
+  [4;36;1mGame Load (1.7ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (5.9ms)
+Completed in 86ms (View: 53, DB: 4) | 200 OK [http://localhost/games/my_unfinished_games]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-13 16:17:35) [GET]
+  Parameters: {"id"=>"16"}
+session[:player_id] is 3
+  [4;36;1mGame Load (1.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 16) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/play
+  [4;36;1mGame Load (1.2ms)[0m   [0;1mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;35;1mGame Load (1.6ms)[0m   [0mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (8.3ms)
+Completed in 80ms (View: 15, DB: 6) | 200 OK [http://localhost/games/play/16]
+
+
+Processing GamesController#move (for 127.0.0.1 at 2010-04-13 16:17:39) [POST]
+  Parameters: {"choice"=>"paper", "authenticity_token"=>"UCJm1ddlTcMpn+74tUUuKIc0P5HWkuNhj0uMbo5kIcM=", "game_id"=>"16"}
+session[:player_id] is 3
+  [4;35;1mGame Load (1.3ms)[0m   [0mSELECT * FROM "games" WHERE ("games"."id" = 16) [0m
+  [4;36;1mPlayer Load (0.9ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mPlayer Load (1.6ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+  [4;35;1mGame Update (0.7ms)[0m   [0mUPDATE "games" SET "updated_at" = '2010-04-13 20:17:39', "inviter_move" = 'paper', "status" = 'finished', "winner_id" = 3 WHERE "id" = 16[0m
+Redirected to http://localhost:3000/games/play/16
+Completed in 80ms (DB: 5) | 302 Found [http://localhost/games/move]
+
+
+Processing GamesController#play (for 127.0.0.1 at 2010-04-13 16:17:40) [GET]
+  Parameters: {"id"=>"16"}
+session[:player_id] is 3
+  [4;36;1mGame Load (1.3ms)[0m   [0;1mSELECT * FROM "games" WHERE ("games"."id" = 16) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mPlayer Load (1.0ms)[0m   [0mSELECT * FROM "players" WHERE ("players"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering games/play
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mGame Load (0.5ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.5ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (4.4ms)
+Completed in 77ms (View: 14, DB: 4) | 200 OK [http://localhost/games/play/16]
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:17:50) [GET]
+GET
+Rendering template within layouts/application
+Rendering players/login
+
+ActionView::TemplateError (undefined method `received_invites' for nil:NilClass) on line #8 of app/views/partials/_globalnav.html.erb:
+5:     <% if session[:player_id] %>
+6:     <li><a href="/players/others">Other logged-in players</a></li>
+7: 
+8:     <%if @me.received_invites.length > 0 %>
+9:     <li>
+10:         <a href="/invites/received">Invites</a>
+11: 
+
+    app/views/partials/_globalnav.html.erb:8
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (186.4ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlayersController#login (for 127.0.0.1 at 2010-04-13 16:19:27) [GET]
+Redirected to http://localhost:3000/players/others
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing PlayersController#others (for 127.0.0.1 at 2010-04-13 16:19:27) [GET]
+session[:player_id] is 3
+  [4;35;1mPlayer Load (5.6ms)[0m   [0mSELECT * FROM "players" WHERE (logged_in is not null and id != 3) [0m
+  [4;36;1mPlayer Load (1.3ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 3) [0m
+  [4;35;1mGame Load (1.5ms)[0m   [0mSELECT * FROM "games" WHERE (inviter_id = 3 and accepted = 'f') [0m
+  [4;36;1mPlayer Load (1.1ms)[0m   [0;1mSELECT * FROM "players" WHERE ("players"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering players/others
+  [4;35;1mGame Load (0.6ms)[0m   [0mSELECT * FROM "games" WHERE (invited_id = 3 and accepted = 'f') [0m
+  [4;36;1mGame Load (0.6ms)[0m   [0;1mSELECT * FROM "games" WHERE ((inviter_id = 3 or invited_id = 3) and status in ('invitation accepted', 'in progress')) [0m
+Rendered partials/_globalnav (4.6ms)
+Completed in 77ms (View: 13, DB: 11) | 200 OK [http://localhost/players/others]
+  [4;36;1mSQL (3.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (34.7ms)[0m   [0;1mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "theme_id" integer, "winner_id" integer, "inviter_id" integer, "invited_id" integer, "inviter_move" text, "invited_move" text, "accepted" boolean DEFAULT 'f', "status" text) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (40.8ms)[0m   [0;1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "from_player_id" integer, "to_player_id" integer) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.2ms)[0m   [0;1mCREATE TABLE "moves" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "choice" text, "game_id" integer, "player_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (12.1ms)[0m   [0;1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" text, "password" text, "created_at" datetime, "updated_at" datetime, "logged_in" datetime) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (7.9ms)[0m   [0;1mCREATE TABLE "themes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "rock_html" text, "scissors_html" text, "paper_html" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (18.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (10.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411191324')[0m
+  [4;35;1mSQL (3.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408183111')[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031758')[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408201232')[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411183310')[0m
+  [4;35;1mSQL (4.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404023854')[0m
+  [4;36;1mSQL (6.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050909')[0m
+  [4;35;1mSQL (3.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100403225834')[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404032802')[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100409184558')[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031858')[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404051102')[0m
+  [4;36;1mSQL (8.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050801')[0m
+  [4;35;1mSQL (4.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100406174408')[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100409193824')[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (25.3ms)[0m   [0;1mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "theme_id" integer, "winner_id" integer, "inviter_id" integer, "invited_id" integer, "inviter_move" text, "invited_move" text, "accepted" boolean DEFAULT 'f', "status" text) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "from_player_id" integer, "to_player_id" integer) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (7.1ms)[0m   [0;1mCREATE TABLE "moves" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "choice" text, "game_id" integer, "player_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" text, "password" text, "created_at" datetime, "updated_at" datetime, "logged_in" datetime) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (14.8ms)[0m   [0;1mCREATE TABLE "themes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "rock_html" text, "scissors_html" text, "paper_html" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (3.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411191324')[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408183111')[0m
+  [4;36;1mSQL (6.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031758')[0m
+  [4;35;1mSQL (3.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408201232')[0m
+  [4;36;1mSQL (6.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411183310')[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404023854')[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050909')[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100403225834')[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404032802')[0m
+  [4;35;1mSQL (7.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100409184558')[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031858')[0m
+  [4;35;1mSQL (3.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404051102')[0m
+  [4;36;1mSQL (8.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050801')[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100406174408')[0m
+  [4;36;1mSQL (9.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100409193824')[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (15.5ms)[0m   [0;1mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "theme_id" integer, "winner_id" integer, "inviter_id" integer, "invited_id" integer, "inviter_move" text, "invited_move" text, "accepted" boolean DEFAULT 'f', "status" text) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "from_player_id" integer, "to_player_id" integer) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.3ms)[0m   [0;1mCREATE TABLE "moves" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "choice" text, "game_id" integer, "player_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.9ms)[0m   [0;1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" text, "password" text, "created_at" datetime, "updated_at" datetime, "logged_in" datetime) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "themes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "rock_html" text, "scissors_html" text, "paper_html" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (38.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (25.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411191324')[0m
+  [4;35;1mSQL (7.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408183111')[0m
+  [4;36;1mSQL (4.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031758')[0m
+  [4;35;1mSQL (4.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408201232')[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411183310')[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404023854')[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050909')[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100403225834')[0m
+  [4;36;1mSQL (14.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404032802')[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100409184558')[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031858')[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404051102')[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050801')[0m
+  [4;35;1mSQL (12.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100406174408')[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100409193824')[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (17.8ms)[0m   [0;1mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "theme_id" integer, "winner_id" integer, "inviter_id" integer, "invited_id" integer, "inviter_move" text, "invited_move" text, "accepted" boolean DEFAULT 'f', "status" text) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (15.9ms)[0m   [0;1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "from_player_id" integer, "to_player_id" integer) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (14.8ms)[0m   [0;1mCREATE TABLE "moves" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "choice" text, "game_id" integer, "player_id" integer) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (17.4ms)[0m   [0;1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" text, "password" text, "created_at" datetime, "updated_at" datetime, "logged_in" datetime) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (14.2ms)[0m   [0;1mCREATE TABLE "themes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "rock_html" text, "scissors_html" text, "paper_html" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411191324')[0m
+  [4;35;1mSQL (4.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408183111')[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031758')[0m
+  [4;35;1mSQL (4.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408201232')[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411183310')[0m
+  [4;35;1mSQL (9.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404023854')[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050909')[0m
+  [4;35;1mSQL (4.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100403225834')[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404032802')[0m
+  [4;35;1mSQL (4.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100409184558')[0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031858')[0m
+  [4;35;1mSQL (5.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404051102')[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050801')[0m
+  [4;35;1mSQL (4.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100406174408')[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100409193824')[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (14.7ms)[0m   [0;1mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "theme_id" integer, "winner_id" integer, "inviter_id" integer, "invited_id" integer, "inviter_move" text, "invited_move" text, "accepted" boolean DEFAULT 'f', "status" text) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "from_player_id" integer, "to_player_id" integer) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (19.4ms)[0m   [0;1mCREATE TABLE "moves" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "choice" text, "game_id" integer, "player_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (10.3ms)[0m   [0;1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" text, "password" text, "created_at" datetime, "updated_at" datetime, "logged_in" datetime) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (7.9ms)[0m   [0;1mCREATE TABLE "themes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "rock_html" text, "scissors_html" text, "paper_html" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (14.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411191324')[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408183111')[0m
+  [4;36;1mSQL (14.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031758')[0m
+  [4;35;1mSQL (3.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408201232')[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100411183310')[0m
+  [4;35;1mSQL (3.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404023854')[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050909')[0m
+  [4;35;1mSQL (10.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100403225834')[0m
+  [4;36;1mSQL (3.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404032802')[0m
+  [4;35;1mSQL (3.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100409184558')[0m
+  [4;36;1mSQL (3.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404031858')[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100404051102')[0m
+  [4;36;1mSQL (10.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100404050801')[0m
+  [4;35;1mSQL (3.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100406174408')[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100409193824')[0m
