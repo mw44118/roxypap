@@ -45,7 +45,7 @@ class GamesController < ApplicationController
       @me = Player.find(session[:player_id])
       @me.make_move(@g, params[:choice])
 
-      flash[:notice] = "Recorded your move (#{params[:choice]})."
+      flash[:notice] = "Recorded your move."
 
     end
 
