@@ -1,22 +1,25 @@
-<ul>
+<ul id="globalnav">
 
     <li><a href="/players/leaderboard">Leader board</a></li>
 
     <% if session[:player_id] %>
-    <li><a href="/players/others">Other logged-in players</a></li>
-
-    <%if @me.received_invites.length > 0 %>
     <li>
-        <a href="/invites/received">Invites</a>
+        <a href="/players/others">Other logged-in players</a>
+        <span><%= @me.other_logged_in_players.length %></span>
+    </li>
 
-        <span><%= @me.received_invites.length %> total</span>
+    <%if @me.number_of_received_invites > 0 %>
+    <li>
+        <a href="/players/received">Invites</a>
+
+        <span><%= @me.number_of_received_invites %> total</span>
     </li>
     <% end %>
 
-    <% if @me.my_unfinished_games.length > 0 %>
+    <% if @me.number_of_my_unfinished_games > 0 %>
     <li><a href="/games/my_unfinished_games">My unfinished games</a>
 
-        <span><%= @me.my_unfinished_games.length %> total</span>
+        <span><%= @me.number_of_my_unfinished_games %> total</span>
 
     </li>
     <% end %>

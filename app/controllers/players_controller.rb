@@ -5,6 +5,12 @@ class PlayersController < ApplicationController
   before_filter :require_authentication, :except => [
     :login, :leaderboard, :register]
 
+  def received
+    @me = Player.find(session[:player_id])
+    @pagetitle = "Invitations sent to me"
+
+  end
+
   def login
 
     if session[:player_id]
@@ -24,7 +30,7 @@ class PlayersController < ApplicationController
       else
           flash[:notice] = "Hi #{p.login} -- welcome!"
           p.logged_in = DateTime.now
-          p.save # Apparently, this is pretty important :)
+          p.save
 
           session[:player_id] = p.id
 
@@ -63,9 +69,9 @@ class PlayersController < ApplicationController
 
     @pagetitle = "Other logged-in players"
 
-    @players = Player.logged_in_players(session[:player_id])
-
     @me = Player.find session[:player_id]
+
+    @players = @me.other_logged_in_players
 
     @invited = @me.delivered_invites.map do |p| p.invited end
 

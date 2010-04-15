@@ -2,7 +2,17 @@
 
 <% if @g.my_move(@me) %>
 
-<p>You picked <%= @g.my_move(@me) %>.</p>
+<p>You picked
+
+<% if @g.my_move(@me) == 'rock' %>
+<img src="/images/bea-arthur.jpeg" width="124" height="94" />
+<% elsif @g.my_move(@me) == 'scissors' %>
+<img src="/images/betty-white.jpeg" width="93" height="124" />
+<% elsif @g.my_move(@me) == 'paper' %>
+<img src="/images/estelle-getty.jpeg" width="93" height="124" />
+<% end %>
+
+</p>
 
 <% else %>
 
@@ -12,12 +22,20 @@
 
     <input type="hidden" name="game_id" value="<%= @g.id %>" />
 
-    <% for choice in ['rock', 'scissors', 'paper'] %>
-        <label>
-            <input type="radio" name="choice" value="<%= choice %>" />
-            <span><%= choice.titlecase %></span>
-        </label>
-    <% end %>
+    <label>
+        <img src="/images/bea-arthur.jpeg" width="124" height="94" />
+        <input type="radio" name="choice" value="rock" />
+    </label>
+
+    <label>
+        <img src="/images/betty-white.jpeg" width="93" height="124" />
+        <input type="radio" name="choice" value="scissors" />
+    </label>
+
+    <label>
+        <img src="/images/estelle-getty.jpeg" width="93" height="124" />
+        <input type="radio" name="choice" value="paper" />
+    </label>
 
     <input type="submit" value="Make your move" />
 

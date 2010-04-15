@@ -9,11 +9,9 @@ class Player < ActiveRecord::Base
     return Player.find_by_login_and_password login, password
   end
 
-  def self.logged_in_players(myID)
-    # Return the other logged-in players.
-
+  def other_logged_in_players
     return Player.all(:conditions=>
-      ["logged_in is not null and id != ?", myID])
+      ["logged_in is not null and id != ?", self.id])
   end
 
   def invite(invited)
@@ -24,9 +22,22 @@ class Player < ActiveRecord::Base
     Game.all(:conditions=>["invited_id = ? and accepted = ?", id, false])
   end
 
+  def number_of_received_invites
+    Game.count(:conditions=>["invited_id = ? and accepted = ?", id, false])
+  end
+
   def delivered_invites
     return Game.all(
       :conditions=>["inviter_id = ? and accepted = ?", id, false])
+  end
+
+  def number_of_my_unfinished_games
+
+    Game.count(
+      :conditions=>[
+        "(inviter_id = ? or invited_id = ?) and status in (?, ?)",
+        self.id, self.id, 'invitation accepted', 'in progress'])
+
   end
 
   def my_unfinished_games

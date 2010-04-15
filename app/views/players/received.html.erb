@@ -1,0 +1,24 @@
+<% if @me.number_of_received_invites == 1 %>
+    <h2>You have one invitiation</h2>
+<% else %>
+    <h2>You have <%= @me.number_of_received_invites %> invitiations</h2>
+<% end %>
+
+<% if @me.number_of_received_invites > 0 %>
+<ul>
+<% for g in @me.received_invites %>
+    <li>
+        <form action="/games/accept" method="post">
+            <%= token_tag %>
+            <input type="hidden" name="game_id" value="<%= g.id %>" />
+
+            <input type="submit"
+
+                value="Accept invite from <%= g.inviter.login %>" />
+        </form>
+
+    </li>
+<% end %>
+</ul>
+
+<% end %>

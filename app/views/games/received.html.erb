@@ -1,0 +1,10 @@
+<h2>You have <%= @me.number_of_received_invites %></h2>
+
+<% if @me.number_of_received_invites > 0 %>
+<ul>
+<% for inv in @me.received_invites %>
+<li><%= inv.inviter.login %></li>
+<% end %>
+</ul>
+
+<% end %>

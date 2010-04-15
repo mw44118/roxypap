@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   #
   #
 
+  @documentready = ""
+
   private
   def require_authentication
     logger.debug("session[:player_id] is #{session[:player_id]}")
